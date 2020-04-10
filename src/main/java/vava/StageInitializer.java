@@ -33,7 +33,7 @@ public class StageInitializer implements ApplicationListener<StageReadyEvent> {
             Parent parent = loader.load();
 
             Stage stage = event.getStage();
-            stage.setScene(new Scene(parent, 800, 600));
+            stage.setScene(new Scene(parent, 1100, 800));
             stage.setTitle(appTitle);
             stage.show();
 
