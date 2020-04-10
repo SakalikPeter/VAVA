@@ -16,7 +16,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws SQLException {
-        um.insert("jano");
+        um.insert();
         applicationContext.publishEvent(new StageReadyEvent(stage));
     }
 
