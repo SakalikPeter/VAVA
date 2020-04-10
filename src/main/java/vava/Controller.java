@@ -1,4 +1,4 @@
-package sample;
+package vava;
 
 public class Controller {
 }
