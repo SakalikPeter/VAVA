@@ -12,11 +12,10 @@ public class UserManager extends DatabaseManager{
         super();
     }
 
-
     public void insert(String queryString) throws SQLException {
         String query = "insert into vava.user(user_name, password) VALUES(?,?)";
         PreparedStatement statement = getConnection().prepareStatement(query);
-        statement.setString(1,"matko");
+        statement.setString(1,"karol");
         statement.setString(2,"heslo");
 
         statement.execute();

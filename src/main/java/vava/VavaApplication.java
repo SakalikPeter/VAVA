@@ -1,7 +1,6 @@
 package vava;
 
 import javafx.application.Application;
-import managers.UserManager;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication

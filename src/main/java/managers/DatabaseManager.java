@@ -2,7 +2,6 @@ package managers;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DatabaseManager {
@@ -11,7 +10,7 @@ public class DatabaseManager {
     public DatabaseManager() {
         try {
             Class.forName("org.postgresql.Driver");
-            connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/vava", "postgres", "vava2020");
+            this.connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/vava", "postgres", "vava2020");
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
