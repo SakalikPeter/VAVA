@@ -8,11 +8,15 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ConfigurableApplicationContext;
 
+import java.sql.SQLException;
+
 public class Main extends Application {
     private ConfigurableApplicationContext applicationContext;
+    static UserManager um = new UserManager();
 
     @Override
-    public void start(Stage stage) {
+    public void start(Stage stage) throws SQLException {
+        um.insert("jano");
         applicationContext.publishEvent(new StageReadyEvent(stage));
     }
 

@@ -1,47 +1,25 @@
 package managers;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
-import org.springframework.jdbc.core.namedparam.SqlParameterSource;
-import org.springframework.jdbc.support.GeneratedKeyHolder;
-import org.springframework.jdbc.support.KeyHolder;
-
-import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class UserManager implements DataAccess{
-    @Autowired
-    private DataSource source;
-
-    private NamedParameterJdbcTemplate template;
+public class UserManager extends DatabaseManager{
 
     public UserManager() {
-        this.template = new NamedParameterJdbcTemplate(source);
+        super();
     }
 
-    @Override
-    public void insert(String queryString) {
-        final String sql = "insert into employee(user_mane, password) values(:user_mane,:password)";
-        KeyHolder holder = new GeneratedKeyHolder();
-        SqlParameterSource param = new MapSqlParameterSource()
-                .addValue("user_mane", "Matejko")
-                .addValue("password", "sadlo");
-        template.update(sql,param, holder);
-    }
 
-    @Override
-    public ArrayList select(String queryString) {
-        return null;
-    }
+    public void insert(String queryString) throws SQLException {
+        String query = "insert into vava.user(user_name, password) VALUES(?,?)";
+        PreparedStatement statement = getConnection().prepareStatement(query);
+        statement.setString(1,"matko");
+        statement.setString(2,"heslo");
 
-    @Override
-    public void update(String queryString) {
-
-    }
-
-    @Override
-    public void delete(String queryString) {
+        statement.execute();
 
     }
 }
