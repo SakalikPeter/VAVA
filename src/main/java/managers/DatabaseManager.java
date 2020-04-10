@@ -1,10 +1,8 @@
 package managers;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 
-public class DatabaseManager {
+public abstract class DatabaseManager {
     private Connection connection;
 
     public DatabaseManager() {
@@ -19,4 +17,25 @@ public class DatabaseManager {
     public Connection getConnection() {
         return this.connection;
     }
+
+    protected ResultSet selectQuery(String query) throws SQLException {
+        try {
+            Statement statement = connection.createStatement();
+            return statement.executeQuery(query);
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    protected void updateQuery(String query) throws SQLException {
+        try {
+            Statement statement = connection.createStatement();
+            statement.executeQuery(query);
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    protected abstract Object processRow(ResultSet rs) throws SQLException;
 }

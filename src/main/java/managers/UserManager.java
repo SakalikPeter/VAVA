@@ -1,6 +1,7 @@
 package managers;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UserManager extends DatabaseManager{
@@ -16,5 +17,10 @@ public class UserManager extends DatabaseManager{
         statement.setString(2,"heslo");
 
         statement.execute();
+    }
+
+    @Override
+    protected Object processRow(ResultSet rs) throws SQLException {
+        return null;
     }
 }

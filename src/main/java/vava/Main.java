@@ -3,6 +3,8 @@ package vava;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.stage.Stage;
+import managers.CollectionManager;
+import managers.ItemManager;
 import managers.UserManager;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ApplicationEvent;
@@ -13,10 +15,12 @@ import java.sql.SQLException;
 public class Main extends Application {
     private ConfigurableApplicationContext applicationContext;
     static UserManager um = new UserManager();
+    static CollectionManager cm = new CollectionManager();
+    static ItemManager im = new ItemManager();
 
     @Override
     public void start(Stage stage) throws SQLException {
-        um.insert();
+        im.insert();
         applicationContext.publishEvent(new StageReadyEvent(stage));
     }
 
