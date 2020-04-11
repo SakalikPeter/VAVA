@@ -1,9 +1,11 @@
 package managers;
 
+import models.User;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class UserManager extends DatabaseManager{
 
@@ -20,13 +22,21 @@ public class UserManager extends DatabaseManager{
         statement.execute();
     }
 
-    public ResultSet select(String name, String password) throws SQLException {
+    public User select(String name, String password) throws SQLException {
         String query = "select * from vava.user where user_name = '" + name + "' AND password = '" + password + "'";
-        return selectQuery(query);
+
+        ResultSet resultSet = selectQuery(query);
+
+        User user = null;
+        if(resultSet.next()) {
+            user = (User) processRow(resultSet);
+        }
+
+        return user;
     }
 
     @Override
     protected Object processRow(ResultSet rs) throws SQLException {
-        return null;
+        return (new User(rs.getInt(1), rs.getString(2), rs.getString(3)));
     }
 }
