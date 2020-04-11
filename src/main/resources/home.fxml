@@ -5,7 +5,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800" prefWidth="1100" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vava.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800" prefWidth="1100" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vava.CollectionController">
    <children>
       <BorderPane prefHeight="800.0" prefWidth="1100.0" style="-fx-background-color: #1A1B1C;">
          <left>
@@ -27,7 +27,7 @@
                      </children>
                   </Pane>
                   <Pane prefHeight="43.0" prefWidth="260.0" />
-                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="65.0" prefWidth="246.0" style="-fx-background-color: #252627;" text="kolekcia 1" textFill="#d9d9d9">
+                  <Button fx:id="collection1" alignment="CENTER" mnemonicParsing="false" onAction="#getAllCollections" prefHeight="65.0" prefWidth="246.0" style="-fx-background-color: #252627;" text="kolekcia 1" textFill="#788cde">
                      <font>
                         <Font name="Segoe UI" size="15.0" />
                      </font>
@@ -50,6 +50,21 @@
                </children>
             </VBox>
          </left>
+         <center>
+            <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <top>
+                  <Pane prefHeight="116.0" prefWidth="840.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label layoutX="21.0" layoutY="25.0" prefHeight="59.0" prefWidth="283.0" text="nazov kolekcie" textFill="#788cde">
+                           <font>
+                              <Font size="41.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+               </top>
+            </BorderPane>
+         </center>
       </BorderPane>
    </children>
 </AnchorPane>

@@ -5,21 +5,24 @@ import javafx.application.Platform;
 import javafx.stage.Stage;
 import managers.CollectionManager;
 import managers.ItemManager;
+import managers.SceneManager;
 import managers.UserManager;
+import models.User;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ConfigurableApplicationContext;
 
-import java.sql.SQLException;
 
 public class Main extends Application {
     private ConfigurableApplicationContext applicationContext;
-    static UserManager um = new UserManager();
-    static CollectionManager cm = new CollectionManager();
-    static ItemManager im = new ItemManager();
+    private static UserManager userManager = new UserManager();
+    private static CollectionManager collectionManager = new CollectionManager();
+    private static ItemManager itemManager = new ItemManager();
+    private static SceneManager sceneManager = new SceneManager();
+    private static User user;
 
     @Override
-    public void start(Stage stage) throws SQLException {
+    public void start(Stage stage) {
         applicationContext.publishEvent(new StageReadyEvent(stage));
     }
 
@@ -42,5 +45,29 @@ public class Main extends Application {
         public Stage getStage() {
             return ((Stage) getSource());
         }
+    }
+
+    public static SceneManager getSceneManager() {
+        return sceneManager;
+    }
+
+    public static UserManager getUserManager() {
+        return userManager;
+    }
+
+    public static CollectionManager getCollectionManager() {
+        return collectionManager;
+    }
+
+    public static ItemManager getItemManager() {
+        return itemManager;
+    }
+
+    public static User getUser() {
+        return user;
+    }
+
+    public static void setUser(User user) {
+        Main.user = user;
     }
 }

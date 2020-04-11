@@ -1,5 +1,6 @@
 package vava;
 
+import managers.SceneManager;
 import managers.UserManager;
 import models.User;
 import javafx.event.ActionEvent;
@@ -9,22 +10,21 @@ import javafx.scene.control.TextField;
 
 import java.sql.SQLException;
 
-
 public class LoginController {
-
-    public static UserManager um = new UserManager();
-    public static String name;
-    public static String password;
+    private static UserManager userManager = Main.getUserManager();
 
     public PasswordField loginTFPassword;
     public TextField loginTFUserName;
     public Button loginBLogIn;
 
     public void loginBLogIn(ActionEvent actionEvent) throws SQLException {
-        name = loginTFUserName.getText();
-        password = loginTFPassword.getText();
+        String name = loginTFUserName.getText();
+        String password = loginTFPassword.getText();
 
-        User user = um.select(name, password);
+        User user = userManager.select(name, password);
+        SceneManager sceneManager = Main.getSceneManager();
+        sceneManager.change_scene("home.fxml", actionEvent);
 
+        Main.setUser(user);
     }
 }
