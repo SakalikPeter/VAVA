@@ -1,5 +1,8 @@
 package vava;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.layout.AnchorPane;
 import managers.SceneManager;
 import managers.UserManager;
 import models.User;
@@ -8,7 +11,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
+import java.io.IOException;
 import java.sql.SQLException;
+import java.util.concurrent.TimeUnit;
 
 public class LoginController {
     private static UserManager userManager = Main.getUserManager();
@@ -16,15 +21,22 @@ public class LoginController {
     public PasswordField loginTFPassword;
     public TextField loginTFUserName;
     public Button loginBLogIn;
+    public AnchorPane mainPane;
 
     public void loginBLogIn(ActionEvent actionEvent) throws SQLException {
         String name = loginTFUserName.getText();
         String password = loginTFPassword.getText();
 
         User user = userManager.select(name, password);
-        SceneManager sceneManager = Main.getSceneManager();
-        sceneManager.change_scene("home.fxml", actionEvent);
+        if(user == null) {
+            System.out.println("nespravne meno alebo heslo!");
+        }
+        else {
+            SceneManager sceneManager = Main.getSceneManager();
+            sceneManager.changeScene("home.fxml", actionEvent);
 
-        Main.setUser(user);
+            Main.setUser(user);
+        }
+
     }
 }
