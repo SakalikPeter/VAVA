@@ -2,6 +2,7 @@ package managers;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 
 public class UserManager extends DatabaseManager{
@@ -17,6 +18,11 @@ public class UserManager extends DatabaseManager{
         statement.setString(2,"heslo");
 
         statement.execute();
+    }
+
+    public ResultSet select(String name, String password) throws SQLException {
+        String query = "select * from vava.user where user_name = '" + name + "' AND password = '" + password + "'";
+        return selectQuery(query);
     }
 
     @Override

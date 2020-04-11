@@ -23,19 +23,6 @@ public class ItemManager extends DatabaseManager {
     public void select() throws SQLException {
         String query = "select * from vava.element where collection_id_fk = 2";
         ResultSet resultSet = selectQuery(query);
-
-        ResultSetMetaData rsmd = resultSet.getMetaData();
-        int columnsNumber = rsmd.getColumnCount();
-        while (resultSet.next()) {
-            for (int i = 1; i <= columnsNumber; i++) {
-                if (i > 1) System.out.print(",  ");
-                String columnValue = resultSet.getString(i);
-                System.out.print(columnValue + " " + rsmd.getColumnName(i));
-            }
-            System.out.println("");
-        }
-
-
     }
 
     @Override
