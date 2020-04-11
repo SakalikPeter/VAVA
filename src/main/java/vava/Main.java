@@ -20,7 +20,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws SQLException {
-        im.insert();
+        im.select();
         applicationContext.publishEvent(new StageReadyEvent(stage));
     }
 

@@ -1,9 +1,7 @@
 package managers;
 
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
 
 public class CollectionManager extends DatabaseManager{
 
@@ -21,6 +19,22 @@ public class CollectionManager extends DatabaseManager{
         statement.setInt(4, 1);
 
         statement.execute();
+    }
+
+    public void select() throws SQLException {
+        String query = "select * from vava.collection where user_id_fk = 1";
+        ResultSet resultSet = selectQuery(query);
+
+        ResultSetMetaData rsmd = resultSet.getMetaData();
+        int columnsNumber = rsmd.getColumnCount();
+        while (resultSet.next()) {
+            for (int i = 1; i <= columnsNumber; i++) {
+                if (i > 1) System.out.print(",  ");
+                String columnValue = resultSet.getString(i);
+                System.out.print(columnValue + " " + rsmd.getColumnName(i));
+            }
+            System.out.println("");
+        }
     }
 
     @Override
