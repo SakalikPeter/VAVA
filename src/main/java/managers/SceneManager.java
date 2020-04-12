@@ -2,6 +2,7 @@ package managers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -31,32 +32,23 @@ public class SceneManager {
         }
     }
 
-    public ArrayList<Button> addCollectionButtons(CollectionController collectionController, VBox sideMenu, ArrayList<Collection> collections) {
+    public ArrayList<Button> addCollectionButtons(CollectionController collectionController, VBox container, ArrayList<Collection> collections) {
         ArrayList<Button> buttons = new ArrayList<>();
         for(Collection collection : collections) {
             Button button = new Button(collection.getName());
-            button.setPrefWidth(260);
-            button.setPrefHeight(65);
+            button.setPrefWidth(360);
+            button.setPrefHeight(45);
             button.getStylesheets().add("style.css");
             button.getStyleClass().add("colButton");
+            container.setMargin(button, new Insets(5, 0,0,0));
             button.setOnAction(click -> {
                 collectionController.getCollection(collection.getName());
             });
             buttons.add(button);
         }
-        Button button = new Button("nova kolekcia");
-        button.setPrefWidth(260);
-        button.setPrefHeight(65);
-        button.getStylesheets().add("style.css");
-        button.getStyleClass().add("colButton");
-        button.setOnAction(click -> {
-            collectionController.newCollectionWindow();
-        });
-        buttons.add(button);
 
-        sideMenu.getChildren().clear();
-        sideMenu.getChildren().addAll(buttons);
-
+        container.getChildren().clear();
+        container.getChildren().addAll(buttons);
         return buttons;
     }
 }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
@@ -14,27 +15,59 @@
                   <Pane prefHeight="170.0" prefWidth="260.0" style="-fx-background-color: #252627;">
                      <children>
                         <Line endX="123.0" layoutX="128.0" layoutY="170.0" startX="-120.0" style="-fx-stroke: #D9D9D9; -fx-stroke-width: 0.2;" />
-                        <Button alignment="CENTER" layoutX="8.0" layoutY="44.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="246.0" style="-fx-background-color: #252627;" text="prihlásený používateľ" textFill="#d9d9d9">
+                        <Button alignment="CENTER" layoutX="1.0" layoutY="44.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="260.0" styleClass="colButton" stylesheets="@style.css" text="prihlásený používateľ" textFill="#d9d9d9">
                            <font>
-                              <Font name="Segoe UI" size="15.0" />
+                              <Font name="Segoe UI Light" size="15.0" />
                            </font>
+                           <graphic>
+                              <ImageView fitHeight="34.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/user.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
                         </Button>
-                        <Button fx:id="settingsB" alignment="CENTER" layoutX="12.0" layoutY="104.0" mnemonicParsing="false" onAction="#settings" prefHeight="52.0" prefWidth="235.0" style="-fx-background-color: #252627;" text="nastavenia" textFill="#d9d9d9">
+                        <Button fx:id="settingsB" alignment="CENTER" layoutY="94.0" mnemonicParsing="false" onAction="#settings" prefHeight="50.0" prefWidth="260.0" styleClass="colButton" stylesheets="@style.css" text="nastavenia" textFill="#d9d9d9">
                            <font>
                               <Font name="Segoe UI" size="15.0" />
                            </font>
+                           <graphic>
+                              <ImageView fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/settings.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
                         </Button>
                      </children>
                   </Pane>
                   <Pane prefHeight="43.0" prefWidth="260.0" />
-                  <VBox fx:id="sideMenu" alignment="TOP_CENTER" prefHeight="587.0" prefWidth="260.0" />
+                  <VBox fx:id="sideMenu" alignment="TOP_CENTER" prefHeight="587.0" prefWidth="260.0">
+                     <children>
+                        <Button fx:id="myCollectionsB" mnemonicParsing="false" onAction="#getAllCollections" prefHeight="61.0" prefWidth="261.0" styleClass="colButton" stylesheets="@style.css" text="moje kolekcie">
+                           <graphic>
+                              <ImageView fitHeight="36.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/collections.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
+                        <Button fx:id="newCollectionB" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#newCollectionWindow" prefHeight="61.0" prefWidth="261.0" styleClass="colButton" stylesheets="@style.css" text="pridať kolekciu">
+                           <graphic>
+                              <ImageView fitHeight="36.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/create_new.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
+                     </children></VBox>
                </children>
             </VBox>
          </left>
          <center>
             <BorderPane fx:id="mainContent" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <top>
-                  <Pane prefHeight="116.0" prefWidth="840.0" BorderPane.alignment="CENTER">
+                  <Pane prefHeight="171.0" prefWidth="840.0" BorderPane.alignment="CENTER">
                      <children>
                         <Label fx:id="collectionNameLabel" layoutX="28.0" layoutY="35.0" prefHeight="59.0" prefWidth="283.0" text="nazov kolekcie" textFill="#788cde" visible="false">
                            <font>
@@ -44,9 +77,9 @@
                      </children>
                   </Pane>
                </top>
-               <bottom>
-                  <Button fx:id="click" mnemonicParsing="false" onAction="#getAllCollections" styleClass="colButton" stylesheets="@style.css" text="Button" BorderPane.alignment="CENTER" />
-               </bottom>
+               <center>
+                  <VBox fx:id="collContainer" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+               </center>
             </BorderPane>
          </center>
       </BorderPane>

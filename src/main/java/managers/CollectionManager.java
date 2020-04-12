@@ -13,13 +13,11 @@ public class CollectionManager extends DatabaseManager{
     }
 
     public void insert(Collection collection) throws SQLException {
-        Date date = new Date(1586532037);
-        String query = "insert into vava.collection(user_id_fk, name, creation_date, size) VALUES(?,?,?,?)";
+        String query = "insert into vava.collection(user_id_fk, name, size) VALUES(?,?,?)";
         PreparedStatement statement = getConnection().prepareStatement(query);
-        statement.setInt(1,1);
-        statement.setString(2,"auticka");
-        statement.setDate(3, date);
-        statement.setInt(4, 1);
+        statement.setInt(1,collection.getUserId());
+        statement.setString(2,collection.getName());
+        statement.setInt(3, collection.getSize());
 
         statement.execute();
     }
@@ -35,9 +33,15 @@ public class CollectionManager extends DatabaseManager{
         return result;
     }
 
+    public void delete(Collection collection) throws SQLException {
+        String query = "delete from vava.collection where collection_id = " + collection.getId();
+        updateQuery(query);
+    }
+
     @Override
     protected Object processRow(ResultSet rs) throws SQLException {
         return (new Collection(rs.getInt(1), rs.getInt(2),
                 rs.getString(3), rs.getDate(4), rs.getInt(5)));
     }
+
 }

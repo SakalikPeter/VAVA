@@ -17,6 +17,13 @@ public class Collection {
         this.size = size;
     }
 
+    public Collection(int userId, String name, Date creationDate, int size) {
+        this.userId = userId;
+        this.name = name;
+        this.creationDate = creationDate;
+        this.size = size;
+    }
+
     public int getId() {
         return id;
     }
