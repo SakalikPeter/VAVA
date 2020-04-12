@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800" prefWidth="1100" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vava.ItemController">
+    <children>
+        <BorderPane prefHeight="800.0" prefWidth="1100.0" style="-fx-background-color: #1A1B1C;">
+            <top>
+                <Pane prefHeight="100.0" prefWidth="1100.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <Button fx:id="backB" layoutX="19.0" layoutY="29.0" mnemonicParsing="false" onAction="#backHome" prefHeight="50.0" prefWidth="87.0" styleClass="settButt" stylesheets="@style.css">
+                            <graphic>
+                                <ImageView fitHeight="45.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@img/back.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic></Button>
+                        <Label layoutX="210.0" layoutY="27.0" text="pridať predmet do kolekcie" textFill="#d9d9d9">
+                            <font>
+                                <Font name="Segoe UI" size="40.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </Pane>
+            </top>
+            <center>
+                <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <TextField fx:id="newCollectionTF" layoutX="527.0" layoutY="213.0" prefHeight="35.0" prefWidth="200.0">
+                            <font>
+                                <Font name="Segoe UI" size="15.0" />
+                            </font></TextField>
+                        <Label layoutX="374.0" layoutY="219.0" text="jano" textFill="#d9d9d9">
+                            <font>
+                                <Font name="Segoe UI" size="20.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </Pane>
+            </center>
+        </BorderPane>
+    </children>
+</AnchorPane>

@@ -1,12 +1,14 @@
 package managers;
 
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -62,16 +64,34 @@ public class SceneManager {
     }
 
     public void showCollection(ArrayList<Item> items, VBox container) {
-        TableView<Item> table = new TableView<Item>();
-        TableColumn<Item, String> column = new TableColumn<>();
-        table.getColumns().add(column);
+        if(items.size() > 0) {
+            TableView<Item> table = new TableView<Item>();
+            TableColumn<Item, String> column = new TableColumn<>();
+            table.getColumns().add(column);
 
-        column.setCellValueFactory(new PropertyValueFactory<>("brand"));    //toto je docasne bude tam nazov predmetu + mozno dalsie informacie o predmete
-        for (Item i : items) {
-            table.getItems().add(i);
+            column.setCellValueFactory(new PropertyValueFactory<>("brand"));    //toto je docasne bude tam nazov predmetu + mozno dalsie informacie o predmete
+            table.getItems().addAll(items);
+
+            container.getChildren().clear();
+            container.getChildren().add(table);
+        }
+        else {
+            Button button = new Button("pridať predmet");
+            button.setPrefWidth(260);
+            button.setPrefHeight(45);
+            button.getStylesheets().add("style.css");
+            button.getStyleClass().add("addItemB");
+            button.setOnAction(actionEvent -> changeScene("createItem.fxml", actionEvent));
+
+            Label label = new Label();
+            label.getStylesheets().add("style.css");
+            label.getStyleClass().add("itsEmptyLabel");
+            label.setText("Je tu smutno! Pridaj predmet do tajto kolekcie.");
+            container.getChildren().clear();
+            container.getChildren().add(button);
+            container.getChildren().add(label);
         }
 
-        container.getChildren().clear();
-        container.getChildren().add(table);
+
     }
 }
