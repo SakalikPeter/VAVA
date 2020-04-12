@@ -33,6 +33,7 @@ public class CollectionController {
     public Button newCollectionB;
     public VBox collContainer;
     public Button backB;
+    public Button createItem;
 
     private CollectionManager collectionManager = Main.getCollectionManager();
     private SceneManager sceneManager = Main.getSceneManager();
@@ -49,6 +50,8 @@ public class CollectionController {
     }
 
     public void getCollection(Collection collection) throws SQLException {
+        Main.setActCollection(collection);
+
         collectionNameLabel.setVisible(true);
         collectionNameLabel.setText(collection.getName());
 
@@ -73,5 +76,9 @@ public class CollectionController {
 
     public void backHome(ActionEvent actionEvent) {
         sceneManager.changeScene("home.fxml", actionEvent);
+    }
+
+    public void collectionCreateItemB(ActionEvent actionEvent) {
+        sceneManager.changeScene("createItem.fxml", actionEvent);
     }
 }

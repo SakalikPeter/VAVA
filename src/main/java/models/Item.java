@@ -5,6 +5,7 @@ import java.sql.Date;
 public class Item {
     private int id;
     private int collectionId;
+    private String name;
     private Date acquirementDate;
     private int productionYear;
     private String author;
@@ -17,10 +18,29 @@ public class Item {
     private int value;
     private String note;
 
-    public Item(int id, int collectionId, Date acquirementDate, int productionYear, String author, String genre,
+    public Item(int id, int collectionId, String name, Date acquirementDate, int productionYear, String author, String genre,
                 String brand, String acquirementLocation, String dimensions, String originCountry, int price,
                 int value, String note) {
         this.id = id;
+        this.collectionId = collectionId;
+        this.name = name;
+        this.acquirementDate = acquirementDate;
+        this.productionYear = productionYear;
+        this.author = author;
+        this.genre = genre;
+        this.brand = brand;
+        this.acquirementLocation = acquirementLocation;
+        this.dimensions = dimensions;
+        this.originCountry = originCountry;
+        this.price = price;
+        this.value = value;
+        this.note = note;
+    }
+
+    public Item(String name, int collectionId, Date acquirementDate, int productionYear, String author, String genre,
+                String brand, String acquirementLocation, String dimensions, String originCountry, int price,
+                int value, String note) {
+        this.name = name;
         this.collectionId = collectionId;
         this.acquirementDate = acquirementDate;
         this.productionYear = productionYear;
@@ -49,6 +69,14 @@ public class Item {
 
     public void setCollectionId(int collectionId) {
         this.collectionId = collectionId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Date getAcquirementDate() {

@@ -7,6 +7,7 @@ import managers.CollectionManager;
 import managers.ItemManager;
 import managers.SceneManager;
 import managers.UserManager;
+import models.Collection;
 import models.User;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ApplicationEvent;
@@ -20,6 +21,7 @@ public class Main extends Application {
     private static ItemManager itemManager = new ItemManager();
     private static SceneManager sceneManager = new SceneManager();
     private static User user;
+    private static Collection actCollection;
 
     @Override
     public void start(Stage stage) {
@@ -69,5 +71,13 @@ public class Main extends Application {
 
     public static void setUser(User user) {
         Main.user = user;
+    }
+
+    public static Collection getActCollection() {
+        return actCollection;
+    }
+
+    public static void setActCollection(Collection actCollection) {
+        Main.actCollection = actCollection;
     }
 }

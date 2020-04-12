@@ -30,19 +30,19 @@
          <center>
             <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <TextField layoutX="487.0" layoutY="34.0" prefHeight="30.0" prefWidth="200.0" styleClass="textField" stylesheets="@style.css" />
-                  <TextField layoutX="487.0" layoutY="72.0" styleClass="textField" stylesheets="@style.css" />
-                  <TextField layoutX="487.0" layoutY="108.0" styleClass="textField" stylesheets="@style.css" />
-                  <TextField layoutX="487.0" layoutY="144.0" styleClass="textField" stylesheets="@style.css" />
-                  <TextField layoutX="487.0" layoutY="185.0" styleClass="textField" stylesheets="@style.css" />
-                  <TextField layoutX="487.0" layoutY="226.0" styleClass="textField" stylesheets="@style.css" />
-                  <TextField layoutX="487.0" layoutY="265.0" styleClass="textField" stylesheets="@style.css" />
-                  <TextField layoutX="487.0" layoutY="306.0" styleClass="textField" stylesheets="@style.css" />
-                  <TextField layoutX="487.0" layoutY="347.0" styleClass="textField" stylesheets="@style.css" />
-                  <TextField layoutX="487.0" layoutY="388.0" styleClass="textField" stylesheets="@style.css" />
-                  <DatePicker layoutX="487.0" layoutY="433.0" />
-                  <TextArea layoutX="487.0" layoutY="472.0" prefHeight="149.0" prefWidth="291.0" />
-                  <Button layoutX="730.0" layoutY="642.0" mnemonicParsing="false" text="pridat" />
+                  <TextField fx:id="itemName" layoutX="487.0" layoutY="34.0" prefHeight="30.0" prefWidth="200.0" styleClass="textField" stylesheets="@style.css" />
+                  <TextField fx:id="itemAuthor" layoutX="487.0" layoutY="72.0" styleClass="textField" stylesheets="@style.css" />
+                  <TextField fx:id="itemBrand" layoutX="487.0" layoutY="108.0" styleClass="textField" stylesheets="@style.css" />
+                  <TextField fx:id="itemProdYear" layoutX="487.0" layoutY="144.0" styleClass="textField" stylesheets="@style.css" />
+                  <TextField fx:id="itemOrigCountry" layoutX="487.0" layoutY="185.0" styleClass="textField" stylesheets="@style.css" />
+                  <TextField fx:id="itemGenre" layoutX="487.0" layoutY="226.0" styleClass="textField" stylesheets="@style.css" />
+                  <TextField fx:id="itemDimension" layoutX="487.0" layoutY="265.0" styleClass="textField" stylesheets="@style.css" />
+                  <TextField fx:id="itemPrice" layoutX="487.0" layoutY="306.0" styleClass="textField" stylesheets="@style.css" />
+                  <TextField fx:id="itemValue" layoutX="487.0" layoutY="347.0" styleClass="textField" stylesheets="@style.css" />
+                  <TextField fx:id="itemAcqLoc" layoutX="487.0" layoutY="388.0" styleClass="textField" stylesheets="@style.css" />
+                  <DatePicker fx:id="itemAcqDate" layoutX="487.0" layoutY="433.0" />
+                  <TextArea fx:id="itemNote" layoutX="487.0" layoutY="472.0" prefHeight="149.0" prefWidth="291.0" />
+                  <Button fx:id="insertItem" layoutX="730.0" layoutY="642.0" mnemonicParsing="false" onAction="#insertItemB" text="pridat" />
                   <Label layoutX="432.0" layoutY="40.0" text="názov" textFill="#d9d9d9">
                      <font>
                         <Font name="Segoe UI" size="15.0" />

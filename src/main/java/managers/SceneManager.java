@@ -69,12 +69,16 @@ public class SceneManager {
             TableColumn<Item, String> column = new TableColumn<>();
             table.getColumns().add(column);
 
-            column.setCellValueFactory(new PropertyValueFactory<>("brand"));    //toto je docasne bude tam nazov predmetu + mozno dalsie informacie o predmete
+            column.setCellValueFactory(new PropertyValueFactory<>("name"));    //toto je docasne bude tam nazov predmetu + mozno dalsie informacie o predmete
             table.getItems().addAll(items);
             table.getStylesheets().add("style.css");
 
             container.getChildren().clear();
             container.getChildren().add(table);
+
+            Button createItem = new Button("Pridaj");
+            container.getChildren().add(createItem);
+            createItem.setOnAction(actionEvent -> changeScene("createItem.fxml", actionEvent));
         }
         else {
             Button button = new Button("pridať predmet");
