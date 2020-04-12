@@ -7,12 +7,17 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import models.Collection;
+import models.Item;
 import vava.CollectionController;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class SceneManager {
@@ -42,7 +47,11 @@ public class SceneManager {
             button.getStyleClass().add("colButton");
             container.setMargin(button, new Insets(5, 0,0,0));
             button.setOnAction(click -> {
-                collectionController.getCollection(collection.getName());
+                try {
+                    collectionController.getCollection(collection);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             });
             buttons.add(button);
         }
@@ -50,5 +59,19 @@ public class SceneManager {
         container.getChildren().clear();
         container.getChildren().addAll(buttons);
         return buttons;
+    }
+
+    public void showCollection(ArrayList<Item> items, VBox container) {
+        TableView<Item> table = new TableView<Item>();
+        TableColumn<Item, String> column = new TableColumn<>();
+        table.getColumns().add(column);
+
+        column.setCellValueFactory(new PropertyValueFactory<>("brand"));    //toto je docasne bude tam nazov predmetu + mozno dalsie informacie o predmete
+        for (Item i : items) {
+            table.getItems().add(i);
+        }
+
+        container.getChildren().clear();
+        container.getChildren().add(table);
     }
 }

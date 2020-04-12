@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
@@ -10,7 +11,14 @@
          <top>
             <Pane prefHeight="100.0" prefWidth="1100.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="backB" layoutX="32.0" layoutY="38.0" mnemonicParsing="false" onAction="#backHome" text="spat" />
+                  <Button fx:id="backB" layoutX="19.0" layoutY="29.0" mnemonicParsing="false" onAction="#backHome" prefHeight="50.0" prefWidth="87.0" styleClass="settButt" stylesheets="@style.css">
+                     <graphic>
+                        <ImageView fitHeight="45.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/back.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
                   <Label layoutX="210.0" layoutY="27.0" text="nastavenia" textFill="#d9d9d9">
                      <font>
                         <Font name="Segoe UI" size="40.0" />

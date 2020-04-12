@@ -3,20 +3,21 @@ package vava;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import managers.CollectionManager;
+import managers.ItemManager;
 import managers.SceneManager;
 import models.Collection;
+import models.Item;
 import models.User;
 
 import java.io.IOException;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -31,9 +32,11 @@ public class CollectionController {
     public Button myCollectionsB;
     public Button newCollectionB;
     public VBox collContainer;
+    public Button backB;
 
     private CollectionManager collectionManager = Main.getCollectionManager();
     private SceneManager sceneManager = Main.getSceneManager();
+    private ItemManager itemManager = Main.getItemManager();
 
 
     public void getAllCollections() throws SQLException {
@@ -44,23 +47,15 @@ public class CollectionController {
         buttons = sceneManager.addCollectionButtons(this, collContainer, collections);
     }
 
-    public void getCollection(String collectionName) {
+    public void getCollection(Collection collection) throws SQLException {
         collectionNameLabel.setVisible(true);
-        collectionNameLabel.setText(collectionName);
+        collectionNameLabel.setText(collection.getName());
 
+        ArrayList<Item> items = itemManager.select(collection);
+        sceneManager.showCollection(items, collContainer);
     }
 
     public void newCollectionWindow(ActionEvent actionEvent) {
-//        collectionNameLabel.setVisible(true);
-//        collectionNameLabel.setText("nová kolekcia");
-//        Parent root = null;
-//        try {
-//            root = FXMLLoader.load(getClass().getResource("/createCollection.fxml"));
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        mainContent.setCenter(root);
-
         sceneManager.changeScene("createCollection.fxml", actionEvent);
     }
 
@@ -73,5 +68,9 @@ public class CollectionController {
         String collectionName = newCollectionTF.getText();
         Collection collection = new Collection(user.getId(), collectionName, null, 0);
         collectionManager.insert(collection);
+    }
+
+    public void backHome(ActionEvent actionEvent) {
+        sceneManager.changeScene("home.fxml", actionEvent);
     }
 }
