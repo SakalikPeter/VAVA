@@ -47,7 +47,7 @@ public class SceneManager {
             button.setPrefHeight(45);
             button.getStylesheets().add("style.css");
             button.getStyleClass().add("colButton");
-            container.setMargin(button, new Insets(5, 0,0,0));
+            VBox.setMargin(button, new Insets(5, 0,0,0));
             button.setOnAction(click -> {
                 try {
                     collectionController.getCollection(collection);
@@ -71,22 +71,24 @@ public class SceneManager {
 
             column.setCellValueFactory(new PropertyValueFactory<>("brand"));    //toto je docasne bude tam nazov predmetu + mozno dalsie informacie o predmete
             table.getItems().addAll(items);
+            table.getStylesheets().add("style.css");
 
             container.getChildren().clear();
             container.getChildren().add(table);
         }
         else {
             Button button = new Button("pridať predmet");
-            button.setPrefWidth(260);
+            button.setPrefWidth(160);
             button.setPrefHeight(45);
             button.getStylesheets().add("style.css");
             button.getStyleClass().add("addItemB");
             button.setOnAction(actionEvent -> changeScene("createItem.fxml", actionEvent));
-
+            VBox.setMargin(button, new Insets(200, 0,0,0));
             Label label = new Label();
             label.getStylesheets().add("style.css");
             label.getStyleClass().add("itsEmptyLabel");
-            label.setText("Je tu smutno! Pridaj predmet do tajto kolekcie.");
+            label.setText("Je tu smutno! Pridaj sem niečo.");
+            VBox.setMargin(label, new Insets(20, 0,0,0));
             container.getChildren().clear();
             container.getChildren().add(button);
             container.getChildren().add(label);

@@ -43,6 +43,7 @@ public class CollectionController {
         User user = Main.getUser();
         collectionNameLabel.setText("moje kolekcie");
         collectionNameLabel.setVisible(true);
+        myCollectionsB.getStyleClass().add("activeB");
         ArrayList<Collection> collections = collectionManager.select(user.getId());
         buttons = sceneManager.addCollectionButtons(this, collContainer, collections);
     }

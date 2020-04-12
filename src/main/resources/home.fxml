@@ -69,7 +69,7 @@
                <top>
                   <Pane prefHeight="171.0" prefWidth="840.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Label fx:id="collectionNameLabel" layoutX="28.0" layoutY="35.0" prefHeight="59.0" prefWidth="283.0" text="nazov kolekcie" textFill="#788cde" visible="false">
+                        <Label fx:id="collectionNameLabel" layoutX="28.0" layoutY="35.0" prefHeight="59.0" prefWidth="600.0" text="nazov kolekcie" textFill="#788cde" visible="false">
                            <font>
                               <Font size="41.0" />
                            </font>

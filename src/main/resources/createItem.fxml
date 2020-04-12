@@ -27,21 +27,85 @@
                     </children>
                 </Pane>
             </top>
-            <center>
-                <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                    <children>
-                        <TextField fx:id="newCollectionTF" layoutX="527.0" layoutY="213.0" prefHeight="35.0" prefWidth="200.0">
-                            <font>
-                                <Font name="Segoe UI" size="15.0" />
-                            </font></TextField>
-                        <Label layoutX="374.0" layoutY="219.0" text="jano" textFill="#d9d9d9">
-                            <font>
-                                <Font name="Segoe UI" size="20.0" />
-                            </font>
-                        </Label>
-                    </children>
-                </Pane>
-            </center>
+         <center>
+            <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <TextField layoutX="487.0" layoutY="34.0" prefHeight="30.0" prefWidth="200.0" styleClass="textField" stylesheets="@style.css" />
+                  <TextField layoutX="487.0" layoutY="72.0" styleClass="textField" stylesheets="@style.css" />
+                  <TextField layoutX="487.0" layoutY="108.0" styleClass="textField" stylesheets="@style.css" />
+                  <TextField layoutX="487.0" layoutY="144.0" styleClass="textField" stylesheets="@style.css" />
+                  <TextField layoutX="487.0" layoutY="185.0" styleClass="textField" stylesheets="@style.css" />
+                  <TextField layoutX="487.0" layoutY="226.0" styleClass="textField" stylesheets="@style.css" />
+                  <TextField layoutX="487.0" layoutY="265.0" styleClass="textField" stylesheets="@style.css" />
+                  <TextField layoutX="487.0" layoutY="306.0" styleClass="textField" stylesheets="@style.css" />
+                  <TextField layoutX="487.0" layoutY="347.0" styleClass="textField" stylesheets="@style.css" />
+                  <TextField layoutX="487.0" layoutY="388.0" styleClass="textField" stylesheets="@style.css" />
+                  <DatePicker layoutX="487.0" layoutY="433.0" />
+                  <TextArea layoutX="487.0" layoutY="472.0" prefHeight="149.0" prefWidth="291.0" />
+                  <Button layoutX="730.0" layoutY="642.0" mnemonicParsing="false" text="pridat" />
+                  <Label layoutX="432.0" layoutY="40.0" text="názov" textFill="#d9d9d9">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="432.0" layoutY="75.0" text="autor" textFill="#d9d9d9">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="432.0" layoutY="111.0" text="značka" textFill="#d9d9d9">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="406.0" layoutY="147.0" text="rok výroby" textFill="#d9d9d9">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="383.0" layoutY="188.0" text="krajina pôvodu" textFill="#d9d9d9">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="432.0" layoutY="229.0" text="žáner" textFill="#d9d9d9">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="422.0" layoutY="268.0" text="rozmery" textFill="#d9d9d9">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="386.0" layoutY="309.0" text="nákupná cena" textFill="#d9d9d9">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="322.0" layoutY="350.0" text="predpokladaná hodnota" textFill="#d9d9d9">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="335.0" layoutY="391.0" text="miesto nadobudnutia" textFill="#d9d9d9">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="335.0" layoutY="436.0" text="dátum nadobudnutia" textFill="#d9d9d9">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="432.0" layoutY="472.0" text="popis" textFill="#d9d9d9">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </center>
         </BorderPane>
     </children>
 </AnchorPane>
