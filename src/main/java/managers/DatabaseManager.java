@@ -8,7 +8,7 @@ public abstract class DatabaseManager {
     public DatabaseManager() {
         try {
             Class.forName("org.postgresql.Driver");
-            this.connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/vava", "postgres", "mamut9191");
+            this.connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/vava", "postgres", "vava2020");
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
