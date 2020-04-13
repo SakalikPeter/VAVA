@@ -45,6 +45,17 @@ public class ItemManager extends DatabaseManager {
         return result;
     }
 
+    public void delete(Item item) throws SQLException {
+        String query = "delete from vava.item where element_id = " + item.getId();
+        PreparedStatement statement = getConnection().prepareStatement(query);
+        statement.execute();
+    }
+
+    public void update(Item item) throws SQLException {
+        this.delete(item);
+        this.insert(item);
+    }
+
     @Override
     protected Object processRow(ResultSet rs) throws SQLException {
         return (new Item(rs.getInt(1), rs.getInt(2), rs.getString(3),

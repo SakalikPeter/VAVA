@@ -12,11 +12,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import models.Collection;
 import models.Item;
 import vava.CollectionController;
+import vava.Main;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -79,6 +81,29 @@ public class SceneManager {
             Button createItem = new Button("Pridaj");
             container.getChildren().add(createItem);
             createItem.setOnAction(actionEvent -> changeScene("createItem.fxml", actionEvent));
+
+            table.setOnMouseClicked((MouseEvent event) -> {
+                if (table.getSelectionModel().getSelectedItem() != null) {
+                    Main.setActItem(table.getSelectionModel().getSelectedItem());
+                    System.out.println(Main.getActItem().getName());
+                }
+            });
+
+
+            Button updateItem = new Button("Uprav");
+            container.getChildren().add(updateItem);
+            updateItem.setOnAction(actionEvent -> changeScene("updateItem.fxml", actionEvent));
+
+            Button deleteItem = new Button("Odstran");
+            container.getChildren().add(deleteItem);
+            deleteItem.setOnAction(actionEvent -> {
+                try {
+                    Main.getItemManager().delete(Main.getActItem());
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            });
+
         }
         else {
             Button button = new Button("pridať predmet");
