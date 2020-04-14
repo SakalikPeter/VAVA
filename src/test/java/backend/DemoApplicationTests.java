@@ -1,10 +1,10 @@
-package vava;
+package backend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class VavaApplicationTests {
+class DemoApplicationTests {
 
 	@Test
 	void contextLoads() {

@@ -1,4 +1,6 @@
-package models;
+package backend.model;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.sql.Date;
 
@@ -17,7 +19,7 @@ public class Collection {
         this.size = size;
     }
 
-    public Collection(int userId, String name, Date creationDate, int size) {
+    public Collection(@JsonProperty("userId") int userId, @JsonProperty("name") String name, @JsonProperty("date") Date creationDate, @JsonProperty("size") int size) {
         this.userId = userId;
         this.name = name;
         this.creationDate = creationDate;

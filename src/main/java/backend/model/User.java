@@ -1,11 +1,13 @@
-package models;
+package backend.model;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class User {
     private int id;
     private String userName;
     private String password;
 
-    public User(int id, String userName, String password) {
+    public User(@JsonProperty("id") int id, @JsonProperty("name") String userName, @JsonProperty("password") String password) {
         this.id = id;
         this.userName = userName;
         this.password = password;
