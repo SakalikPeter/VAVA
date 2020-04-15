@@ -24,11 +24,12 @@ public class CollectionController {
     }
 
     @GetMapping("/userId/{userId}")
-    public void getCollections(@PathVariable int userId) {
+    public ArrayList<Collection> getCollections(@PathVariable int userId) {
         ArrayList<Collection> collections = collectionService.getCollections(userId);
         for (Collection collection : collections) {
             System.out.println(collection.getName());
         }
+        return collections;
     }
 
     @DeleteMapping("/id/{id}")

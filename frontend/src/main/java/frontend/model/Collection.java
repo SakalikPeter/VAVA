@@ -1,4 +1,4 @@
-package backend.model;
+package frontend.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -19,12 +19,14 @@ public class Collection {
         this.size = size;
     }
 
-    public Collection(@JsonProperty("userId") int userId, @JsonProperty("name") String name, @JsonProperty("date") Date creationDate, @JsonProperty("size") int size) {
+    public Collection(int userId,String name, Date creationDate,  int size) {
         this.userId = userId;
         this.name = name;
         this.creationDate = creationDate;
         this.size = size;
     }
+
+    public Collection() {}
 
     public int getId() {
         return id;

@@ -1,0 +1,79 @@
+package frontend.controller;
+
+import frontend.App;
+import frontend.manager.CollectionManager;
+import frontend.manager.SceneManager;
+import frontend.model.Collection;
+import frontend.model.User;
+import javafx.event.ActionEvent;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Paint;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+public class MainController {
+    public Button settingsB;
+    public VBox sideMenu;
+    public Button myCollectionsB;
+    public Button newCollectionB;
+    public BorderPane mainContent;
+    public Label collectionNameLabel;
+    public VBox collContainer;
+    public AnchorPane main;
+
+    private CollectionManager collectionManager = App.getCollectionManager();
+    private SceneManager sceneManager = App.getSceneManager();
+
+    public void initialize() throws SQLException {
+        getAllCollections();
+    }
+
+    public void getAllCollections() throws SQLException {
+        System.out.println(mainContent);
+        mainContent.setCenter(collContainer);
+        newCollectionB.getStyleClass().clear();
+        newCollectionB.getStyleClass().add("colButton");
+
+        User user = App.getActivUser();
+        collectionNameLabel.setText("moje kolekcie");
+        collectionNameLabel.setTextFill(Paint.valueOf("#788CDE"));
+        collectionNameLabel.setVisible(true);
+        myCollectionsB.getStyleClass().add("activeBcoll");
+        ArrayList<Collection> collections = collectionManager.getAllCollections(user.getId());
+        sceneManager.addCollectionButtons(this, collContainer, collections);
+    }
+
+    public void getCollection(Collection collection) throws SQLException {
+//        Main.setActCollection(collection);
+//
+//        collectionNameLabel.setVisible(true);
+//        collectionNameLabel.setText(collection.getName());
+//
+//        ArrayList<Item> items = itemManager.select(collection);
+//        sceneManager.showCollection(items, collContainer);
+    }
+
+    public void newCollectionWindow(ActionEvent actionEvent) {
+        myCollectionsB.getStyleClass().clear();
+        myCollectionsB.getStyleClass().add("colButton");
+
+        collectionNameLabel.setText("vytvoriť kolekciu");
+        collectionNameLabel.setTextFill(Paint.valueOf("#4AA079"));
+        collectionNameLabel.setVisible(true);
+        newCollectionB.getStyleClass().add("activeBnewColl");
+        sceneManager.setContent("createCollection.fxml", mainContent);
+    }
+
+    public void backHome(ActionEvent actionEvent) {
+        sceneManager.changeScene("Home.fxml", actionEvent);
+    }
+
+    public void settings(ActionEvent actionEvent) {
+        sceneManager.changeScene("settings.fxml", actionEvent);
+    }
+}

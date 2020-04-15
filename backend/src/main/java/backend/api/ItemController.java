@@ -23,12 +23,8 @@ public class ItemController {
     }
 
     @GetMapping("/collId/{collectionId}")
-    public void getItem(@PathVariable int collectionId) {
-        ArrayList<Item> items = itemService.getItems(collectionId);
-
-        for(Item item : items) {
-            System.out.println(item.getName());
-        }
+    public ArrayList<Item> getItem(@PathVariable int collectionId) {
+        return itemService.getItems(collectionId);
     }
 
     @DeleteMapping("id/{id}")
