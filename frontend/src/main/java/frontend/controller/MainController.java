@@ -27,6 +27,7 @@ public class MainController {
     public Label collectionNameLabel;
     public VBox collContainer;
     public AnchorPane main;
+    public Button removeCollectionB;
 
     private CollectionManager collectionManager = App.getCollectionManager();
     private SceneManager sceneManager = App.getSceneManager();
@@ -58,6 +59,7 @@ public class MainController {
         collectionNameLabel.setText(collection.getName());
 
         ArrayList<Item> items = itemManager.getAllItems(collection.getId());
+
         sceneManager.showCollection(items, collContainer);
     }
 
@@ -78,5 +80,10 @@ public class MainController {
 
     public void settings(ActionEvent actionEvent) {
         sceneManager.changeScene("settings.fxml", actionEvent);
+    }
+
+    public void removeCollection(ActionEvent actionEvent) {
+        collectionManager.removeCollection();
+
     }
 }

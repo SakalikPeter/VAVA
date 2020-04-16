@@ -67,18 +67,19 @@
          <center>
             <BorderPane fx:id="mainContent" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <top>
-                  <Pane prefHeight="171.0" prefWidth="840.0" BorderPane.alignment="CENTER">
+                  <Pane prefHeight="170.0" prefWidth="840.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Label fx:id="collectionNameLabel" layoutX="28.0" layoutY="35.0" prefHeight="59.0" prefWidth="600.0" text="nazov kolekcie" textFill="#788cde" visible="false">
+                        <Label fx:id="collectionNameLabel" layoutX="28.0" layoutY="35.0" prefHeight="59.0" prefWidth="600.0" text="nazov kolekcie" textFill="#788cde">
                            <font>
                               <Font size="41.0" />
                            </font>
                         </Label>
+                        <Button fx:id="removeCollectionB" layoutX="731.0" layoutY="52.0" mnemonicParsing="false" onAction="#removeCollection" text="Odstran" />
                      </children>
                   </Pane>
                </top>
                <center>
-                  <VBox fx:id="collContainer" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+                  <VBox fx:id="collContainer" alignment="TOP_CENTER" prefHeight="638.0" prefWidth="753.0" BorderPane.alignment="CENTER" />
                </center>
             </BorderPane>
          </center>

@@ -41,10 +41,26 @@ public class CollectionManager {
         ResponseEntity<Void> responseEntity = restTemplate.exchange(url, HttpMethod.POST, requestEntity, Void.class);
     }
 
-    public void showCollection() {
-        ArrayList<Item> items = itemManager.getAllItems(App.getCollection().getId());
+    public void removeCollection() {
+        Collection collection = App.getCollection();
+        
+        ArrayList<Item> items = App.getItemManager().getAllItems(collection.getId());
 
+        if(items.size() > 0) {
+            App.getItemManager().removeAllItems(items);
+        }
 
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        RestTemplate restTemplate = new RestTemplate();
+
+        String url = "http://localhost:8080/collection/id/{id}";
+
+        HttpEntity<String> requestEntity = new HttpEntity<String>(headers);
+
+        ResponseEntity<Void> responseEntity = restTemplate.exchange(url, HttpMethod.DELETE, requestEntity, Void.class, collection.getId());
     }
+
+
 
 }
