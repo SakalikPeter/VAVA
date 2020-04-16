@@ -2,8 +2,10 @@ package frontend.controller;
 
 import frontend.App;
 import frontend.manager.CollectionManager;
+import frontend.manager.ItemManager;
 import frontend.manager.SceneManager;
 import frontend.model.Collection;
+import frontend.model.Item;
 import frontend.model.User;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
@@ -28,6 +30,7 @@ public class MainController {
 
     private CollectionManager collectionManager = App.getCollectionManager();
     private SceneManager sceneManager = App.getSceneManager();
+    private ItemManager itemManager = App.getItemManager();
 
     public void initialize() throws SQLException {
         getAllCollections();
@@ -49,13 +52,13 @@ public class MainController {
     }
 
     public void getCollection(Collection collection) throws SQLException {
-//        Main.setActCollection(collection);
-//
-//        collectionNameLabel.setVisible(true);
-//        collectionNameLabel.setText(collection.getName());
-//
-//        ArrayList<Item> items = itemManager.select(collection);
-//        sceneManager.showCollection(items, collContainer);
+        App.setCollection(collection);
+
+        collectionNameLabel.setVisible(true);
+        collectionNameLabel.setText(collection.getName());
+
+        ArrayList<Item> items = itemManager.getAllItems(collection.getId());
+        sceneManager.showCollection(items, collContainer);
     }
 
     public void newCollectionWindow(ActionEvent actionEvent) {

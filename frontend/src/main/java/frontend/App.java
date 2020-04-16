@@ -1,8 +1,10 @@
 package frontend;
 
 import frontend.manager.CollectionManager;
+import frontend.manager.ItemManager;
 import frontend.manager.SceneManager;
 import frontend.manager.UserManager;
+import frontend.model.Item;
 import frontend.model.User;
 import frontend.model.Collection;
 import javafx.application.Application;
@@ -18,9 +20,11 @@ public class App extends Application {
     private static SceneManager sceneManager = new SceneManager();
     private static CollectionManager collectionManager = new CollectionManager();
     private static UserManager userManager = new UserManager();
+    private static ItemManager itemManager = new ItemManager();
 
     private static User activUser;
     private static Collection collection;
+    private static Item actItem;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -28,6 +32,26 @@ public class App extends Application {
         stage.setTitle("Collection Tracker");
         stage.setScene(new Scene(root, 1100, 800));
         stage.show();
+    }
+
+    public static Item getActItem() {
+        return actItem;
+    }
+
+    public static void setActItem(Item actItem) {
+        App.actItem = actItem;
+    }
+
+    public static ItemManager getItemManager() {
+        return itemManager;
+    }
+
+    public static Collection getCollection() {
+        return collection;
+    }
+
+    public static void setCollection(Collection collection) {
+        App.collection = collection;
     }
 
     public static SceneManager getSceneManager() {
