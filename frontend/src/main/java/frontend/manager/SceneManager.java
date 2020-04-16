@@ -99,6 +99,10 @@ public class SceneManager {
                 }
             });
 
+            Button showItemB = new Button("Zobraz");
+            container.getChildren().add(showItemB);
+            showItemB.setOnAction(actionEvent -> changeScene("itemDetail.fxml", actionEvent));
+
 
 //            Button updateItem = new Button("Uprav");
 //            container.getChildren().add(updateItem);

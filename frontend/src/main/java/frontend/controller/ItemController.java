@@ -5,10 +5,7 @@ import frontend.manager.ItemManager;
 import frontend.manager.SceneManager;
 import frontend.model.Item;
 import javafx.event.ActionEvent;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.sql.Date;
 
