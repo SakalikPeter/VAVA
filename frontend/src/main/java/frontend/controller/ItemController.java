@@ -13,6 +13,20 @@ import javafx.scene.control.TextField;
 import java.sql.Date;
 
 public class ItemController {
+    public TextField updateItemName;
+    public TextField updateItemAuthor;
+    public TextField updateItemBrand;
+    public TextField updateItemProdYear;
+    public TextField updateItemOrigCountry;
+    public TextField updateItemGenre;
+    public TextField updateItemDimensions;
+    public TextField updateItemPrice;
+    public TextField updateItemValue;
+    public TextField updateItemAcqLoc;
+    public DatePicker updateItemAcqDate;
+    public TextArea updateItemNote;
+    public Button updateItemB;
+
     private SceneManager sceneManager = App.getSceneManager();
     private ItemManager itemManager = App.getItemManager();
 
@@ -53,5 +67,47 @@ public class ItemController {
                 brand, acquirementLocation, dimensions, originCountry, price, value, note);
 
         itemManager.addItem(item);
+    }
+
+    public void updateItem(ActionEvent actionEvent) {
+
+        if (!updateItemName.getText().trim().isEmpty()) {
+            App.getActItem().setName(updateItemName.getText());
+        }
+        if (!updateItemAuthor.getText().trim().isEmpty()) {
+            App.getActItem().setAuthor(updateItemAuthor.getText());
+        }
+        if (!updateItemBrand.getText().trim().isEmpty()) {
+            App.getActItem().setBrand(updateItemBrand.getText());
+        }
+        if (!updateItemProdYear.getText().trim().isEmpty()) {
+            App.getActItem().setProductionYear(Integer.parseInt(updateItemProdYear.getText()));
+        }
+        if (!updateItemOrigCountry.getText().trim().isEmpty()) {
+            App.getActItem().setOriginCountry(updateItemOrigCountry.getText());
+        }
+        if (!updateItemGenre.getText().trim().isEmpty()) {
+            App.getActItem().setGenre(updateItemGenre.getText());
+        }
+        if (!updateItemDimensions.getText().trim().isEmpty()) {
+            App.getActItem().setDimensions(updateItemDimensions.getText());
+        }
+        if (!updateItemPrice.getText().trim().isEmpty()) {
+            App.getActItem().setPrice(Integer.parseInt(updateItemPrice.getText()));
+        }
+        if (!updateItemValue.getText().trim().isEmpty()) {
+            App.getActItem().setValue(Integer.parseInt(updateItemValue.getText()));
+        }
+        if (!updateItemAcqLoc.getText().trim().isEmpty()) {
+            App.getActItem().setAcquirementLocation(updateItemAcqLoc.getText());
+        }
+        if (updateItemAcqDate.getValue() != null) {
+            App.getActItem().setAcquirementDate(Date.valueOf(updateItemAcqDate.getValue()));
+        }
+        if (!updateItemNote.getText().trim().isEmpty()) {
+            App.getActItem().setNote(updateItemNote.getText());
+        }
+
+        itemManager.updateItem(App.getActItem());
     }
 }

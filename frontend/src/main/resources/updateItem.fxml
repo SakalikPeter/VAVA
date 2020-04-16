@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vava.ItemController">
+<AnchorPane prefHeight="563.0" prefWidth="743.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.controller.ItemController">
    <children>
       <TextField fx:id="updateItemName" layoutX="204.0" layoutY="14.0" />
       <TextField fx:id="updateItemAuthor" layoutX="204.0" layoutY="46.0" />
@@ -15,8 +15,20 @@
       <TextField fx:id="updateItemPrice" layoutX="204.0" layoutY="258.0" />
       <TextField fx:id="updateItemValue" layoutX="204.0" layoutY="290.0" />
       <TextField fx:id="updateItemAcqLoc" layoutX="204.0" layoutY="324.0" />
-      <DatePicker fx:id="updateItemAcqDate" layoutX="396.0" layoutY="27.0" />
-      <TextArea fx:id="updateItemNote" layoutX="383.0" layoutY="88.0" prefHeight="200.0" prefWidth="200.0" />
-      <Button fx:id="updateItemB" layoutX="450.0" layoutY="324.0" mnemonicParsing="false" onAction="#updateItem" text="Uprav" />
+      <DatePicker fx:id="updateItemAcqDate" layoutX="537.0" layoutY="27.0" />
+      <TextArea fx:id="updateItemNote" layoutX="474.0" layoutY="101.0" prefHeight="200.0" prefWidth="200.0" />
+      <Button fx:id="updateItemB" layoutX="384.0" layoutY="489.0" mnemonicParsing="false" onAction="#updateItem" text="Uprav" />
+      <Label layoutX="80.0" layoutY="18.0" text="Názov" />
+      <Label layoutX="80.0" layoutY="50.0" text="Autor" />
+      <Label layoutX="80.0" layoutY="84.0" text="Značka" />
+      <Label layoutX="80.0" layoutY="120.0" text="Rok výroby" />
+      <Label layoutX="80.0" layoutY="155.0" text="Krajina pôvodu" />
+      <Label layoutX="80.0" layoutY="192.0" text="Žáner" />
+      <Label layoutX="80.0" layoutY="228.0" text="Rozmery" />
+      <Label layoutX="80.0" layoutY="262.0" text="Cena" />
+      <Label layoutX="80.0" layoutY="294.0" text="Hodnota" />
+      <Label layoutX="80.0" layoutY="328.0" text="Miesto nadobudnutia" />
+      <Label layoutX="408.0" layoutY="31.0" text="Dátum nadobudnutia" />
+      <Label layoutX="408.0" layoutY="184.0" text="Poznámka" />
    </children>
 </AnchorPane>
