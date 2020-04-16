@@ -43,7 +43,7 @@ public class CollectionManager {
 
     public void removeCollection() {
         Collection collection = App.getCollection();
-        
+
         ArrayList<Item> items = App.getItemManager().getAllItems(collection.getId());
 
         if(items.size() > 0) {
@@ -60,7 +60,5 @@ public class CollectionManager {
 
         ResponseEntity<Void> responseEntity = restTemplate.exchange(url, HttpMethod.DELETE, requestEntity, Void.class, collection.getId());
     }
-
-
 
 }

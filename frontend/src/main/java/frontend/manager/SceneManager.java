@@ -10,10 +10,7 @@ import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
@@ -99,21 +96,20 @@ public class SceneManager {
                 }
             });
 
+
             Button showItemB = new Button("Zobraz");
             container.getChildren().add(showItemB);
             showItemB.setOnAction(actionEvent -> changeScene("itemDetail.fxml", actionEvent));
-
-
-//            Button updateItem = new Button("Uprav");
-//            container.getChildren().add(updateItem);
-//            updateItem.setOnAction(actionEvent -> changeScene("updateItem.fxml", actionEvent));
+            
+            Button updateItem = new Button("Uprav");
+            container.getChildren().add(updateItem);
+            updateItem.setOnAction(actionEvent -> changeScene("updateItem.fxml", actionEvent));
 
             Button deleteItem = new Button("Odstran");
             container.getChildren().add(deleteItem);
             deleteItem.setOnAction(actionEvent -> {
                 App.getItemManager().removeItem(App.getActItem().getId());
             });
-
         }
         else {
             Button button = new Button("pridať predmet");
@@ -132,7 +128,6 @@ public class SceneManager {
             container.getChildren().add(button);
             container.getChildren().add(label);
         }
-
-
     }
+
 }

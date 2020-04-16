@@ -16,22 +16,8 @@ public class ItemManager {
 
         String url = "http://localhost:8080/item/collId/{collectionId}";
 
-        System.out.println("ja som id: " + id);
-
         HttpEntity<String> requestEntity = new HttpEntity<String>(headers);
-
         ResponseEntity<Item[]> responseEntity = restTemplate.exchange(url, HttpMethod.GET, requestEntity, Item[].class, id);
-
-        ArrayList<Item> items = new ArrayList<>(Arrays.asList(responseEntity.getBody()));
-
-        for(Item item : items){
-            System.out.println(item.getName());
-        }
-
-//        if(item.length == 0){
-//            System.out.println(item.length);
-//            return new ArrayList<>();
-//        }
 
         return new ArrayList<>(Arrays.asList(responseEntity.getBody()));
     }
@@ -47,6 +33,8 @@ public class ItemManager {
 
         ResponseEntity<Void> responseEntity = restTemplate.exchange(url, HttpMethod.POST, requestEntity, Void.class);
     }
+
+
 
     public void removeItem(int id) {
         HttpHeaders headers = new HttpHeaders();
@@ -64,5 +52,10 @@ public class ItemManager {
         for(Item item : items) {
             this.removeItem(item.getId());
         }
+    }
+
+    public void updateItem(Item item) {
+        this.removeItem(item.getId());
+        this.addItem(item);
     }
 }
