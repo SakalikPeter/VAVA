@@ -1,3 +1,2 @@
-Predmet: VAVA
+# Collection tracker
 Autori: Peter Sakalík, Matej Šalko
-Projekt: Collector tracker

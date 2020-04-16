@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="630" prefWidth="840" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.controller.CollectionController">
+   <children>
+      <BorderPane prefHeight="630.0" prefWidth="840.0" style="-fx-background-color: #1A1B1C;">
+         <center>
+            <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="createCollectionB" layoutX="507.0" layoutY="183.0" mnemonicParsing="false" onAction="#createCollection" prefHeight="30.0" prefWidth="90.0" styleClass="collectionB" stylesheets="@style.css" text="pridať" />
+                  <TextField fx:id="newCollectionTF" layoutX="397.0" layoutY="115.0" prefHeight="35.0" prefWidth="200.0">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font></TextField>
+                  <Label layoutX="244.0" layoutY="121.0" text="názov kolekcie" textFill="#d9d9d9">
+                     <font>
+                        <Font name="Segoe UI" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
