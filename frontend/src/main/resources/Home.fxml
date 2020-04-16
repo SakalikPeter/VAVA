@@ -74,7 +74,14 @@
                               <Font size="41.0" />
                            </font>
                         </Label>
-                        <Button fx:id="removeCollectionB" layoutX="731.0" layoutY="52.0" mnemonicParsing="false" onAction="#removeCollection" text="Odstran" />
+                        <Button fx:id="removeCollectionB" layoutX="700.0" layoutY="25.0" mnemonicParsing="false" onAction="#removeCollection" prefHeight="34.0" prefWidth="120.0" styleClass="regularButt" stylesheets="@style.css" text="odstániť kolekciu">
+                           <font>
+                              <Font name="Segoe UI" size="13.0" />
+                           </font></Button>
+                        <Button fx:id="changeCollectionB" layoutX="700.0" layoutY="71.0" mnemonicParsing="false" onAction="#removeCollection" prefHeight="34.0" prefWidth="120.0" styleClass="regularButt" stylesheets="@style.css" text="upraviť kolekciu">
+                           <font>
+                              <Font size="13.0" />
+                           </font></Button>
                      </children>
                   </Pane>
                </top>

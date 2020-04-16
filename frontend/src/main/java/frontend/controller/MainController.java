@@ -28,17 +28,20 @@ public class MainController {
     public VBox collContainer;
     public AnchorPane main;
     public Button removeCollectionB;
+    public Button changeCollectionB;
 
     private CollectionManager collectionManager = App.getCollectionManager();
     private SceneManager sceneManager = App.getSceneManager();
     private ItemManager itemManager = App.getItemManager();
 
     public void initialize() throws SQLException {
+        removeCollectionB.setVisible(false);
+        changeCollectionB.setVisible(false);
         getAllCollections();
     }
 
     public void getAllCollections() throws SQLException {
-        System.out.println(mainContent);
+        removeCollectionB.setVisible(false);
         mainContent.setCenter(collContainer);
         newCollectionB.getStyleClass().clear();
         newCollectionB.getStyleClass().add("colButton");
@@ -61,6 +64,7 @@ public class MainController {
         ArrayList<Item> items = itemManager.getAllItems(collection.getId());
 
         sceneManager.showCollection(items, collContainer);
+        removeCollectionB.setVisible(true);
     }
 
     public void newCollectionWindow(ActionEvent actionEvent) {

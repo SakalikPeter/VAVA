@@ -85,7 +85,9 @@ public class SceneManager {
             container.getChildren().clear();
             container.getChildren().add(table);
 
-            Button createItem = new Button("Pridaj");
+            Button createItem = new Button("pridať");
+            createItem.getStyleClass().add("itemButt");
+            createItem.getStylesheets().add("style.css");
             container.getChildren().add(createItem);
             createItem.setOnAction(actionEvent -> changeScene("createItem.fxml", actionEvent));
 
@@ -97,15 +99,21 @@ public class SceneManager {
             });
 
 
-            Button showItemB = new Button("Zobraz");
+            Button showItemB = new Button("zobraziť");
+            showItemB.getStyleClass().add("itemButt");
+            showItemB.getStylesheets().add("style.css");
             container.getChildren().add(showItemB);
             showItemB.setOnAction(actionEvent -> changeScene("itemDetail.fxml", actionEvent));
-            
-            Button updateItem = new Button("Uprav");
+
+            Button updateItem = new Button("upraviť");
+            updateItem.getStyleClass().add("itemButt");
+            updateItem.getStylesheets().add("style.css");
             container.getChildren().add(updateItem);
             updateItem.setOnAction(actionEvent -> changeScene("updateItem.fxml", actionEvent));
 
-            Button deleteItem = new Button("Odstran");
+            Button deleteItem = new Button("odstrániť");
+            deleteItem.getStyleClass().add("itemButt");
+            deleteItem.getStylesheets().add("style.css");
             container.getChildren().add(deleteItem);
             deleteItem.setOnAction(actionEvent -> {
                 App.getItemManager().removeItem(App.getActItem().getId());
