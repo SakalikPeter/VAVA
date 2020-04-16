@@ -1,9 +1,6 @@
 package frontend;
 
-import frontend.manager.CollectionManager;
-import frontend.manager.ItemManager;
-import frontend.manager.SceneManager;
-import frontend.manager.UserManager;
+import frontend.manager.*;
 import frontend.model.Item;
 import frontend.model.User;
 import frontend.model.Collection;
@@ -21,6 +18,7 @@ public class App extends Application {
     private static CollectionManager collectionManager = new CollectionManager();
     private static UserManager userManager = new UserManager();
     private static ItemManager itemManager = new ItemManager();
+    private static PdfManager pdfManager = new PdfManager();
 
     private static User activUser;
     private static Collection collection;
@@ -66,12 +64,19 @@ public class App extends Application {
         return userManager;
     }
 
-
     public static User getActivUser() {
         return activUser;
     }
 
     public static void setActivUser(User activUser) {
         App.activUser = activUser;
+    }
+
+    public static PdfManager getPdfManager() {
+        return pdfManager;
+    }
+
+    public static void setPdfManager(PdfManager pdfManager) {
+        App.pdfManager = pdfManager;
     }
 }

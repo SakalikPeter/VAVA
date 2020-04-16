@@ -1,5 +1,7 @@
 package frontend.controller;
 
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.PdfWriter;
 import frontend.App;
 import frontend.manager.ItemManager;
 import frontend.manager.SceneManager;
@@ -7,6 +9,8 @@ import frontend.model.Item;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.sql.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -14,6 +18,8 @@ import java.text.SimpleDateFormat;
 public class detailItemController {
     private SceneManager sceneManager = App.getSceneManager();
     private ItemManager itemManager = App.getItemManager();
+
+    public Button createPDF;
 
     public Button backB;
     public Label nameL;
@@ -57,6 +63,10 @@ public class detailItemController {
         dateL.setText(date);
 
         noteL.setText(item.getNote());
+    }
+
+    public void createPDF(ActionEvent actionEvent) throws FileNotFoundException, DocumentException {
+        App.getPdfManager().createPDF();
     }
 }
 
