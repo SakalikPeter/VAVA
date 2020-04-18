@@ -65,7 +65,7 @@ public class detailItemController {
         noteL.setText(item.getNote());
     }
 
-    public void createPDF(ActionEvent actionEvent) throws FileNotFoundException, DocumentException {
+    public void createPDF(ActionEvent actionEvent) {
         App.getPdfManager().createPDF();
     }
 }
