@@ -64,7 +64,9 @@ public class MainController {
     }
 
     public void getAllCollections() throws SQLException {
+        bottomButtonPanel.setVisible(false);
         removeCollectionB.setVisible(false);
+        changeCollectionB.setVisible(false);
         mainContent.setCenter(collContainer);
         newCollectionB.getStyleClass().clear();
         newCollectionB.getStyleClass().add("colButton");
