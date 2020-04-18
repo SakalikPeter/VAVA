@@ -9,6 +9,7 @@ import javafx.scene.control.*;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ResourceBundle;
 
 public class EditItemController {
     public TextField updateItemName;
@@ -26,11 +27,38 @@ public class EditItemController {
     public Button updateItemB;
     public Button backB;
     public Label itemNameL;
+    public Label createNameL;
+    public Label createAuthorL;
+    public Label createBrandL;
+    public Label createYearL;
+    public Label createCountryL;
+    public Label createGenreL;
+    public Label createDimensionsL;
+    public Label createPriceL;
+    public Label createValueL;
+    public Label createAqPlaceL;
+    public Label createDateL;
+    public Label createNoteL;
 
     private ItemManager itemManager = App.getItemManager();
 
     public void initialize() {
         Item item = App.getActItem();
+        ResourceBundle resourceBundle = ResourceBundle.getBundle(App.getLanguage());
+
+        updateItemB.setText(resourceBundle.getString("ItemController.editB"));
+        createNameL.setText(resourceBundle.getString("ItemController.createNameL"));
+        createAuthorL.setText(resourceBundle.getString("ItemController.createAuthorL"));
+        createBrandL.setText(resourceBundle.getString("ItemController.createBrandL"));
+        createYearL.setText(resourceBundle.getString("ItemController.createYearL"));
+        createCountryL.setText(resourceBundle.getString("ItemController.createCountryL"));
+        createGenreL.setText(resourceBundle.getString("ItemController.createGenreL"));
+        createDimensionsL.setText(resourceBundle.getString("ItemController.createDimensionsL"));
+        createPriceL.setText(resourceBundle.getString("ItemController.createPriceL"));
+        createValueL.setText(resourceBundle.getString("ItemController.createValueL"));
+        createAqPlaceL.setText(resourceBundle.getString("ItemController.createAqPlaceL"));
+        createDateL.setText(resourceBundle.getString("ItemController.createDateL"));
+        createNoteL.setText(resourceBundle.getString("ItemController.createNoteL"));
 
         itemNameL.setText(item.getName());
         updateItemName.setText(item.getName());

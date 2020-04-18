@@ -32,62 +32,62 @@
          <center>
                 <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                     <children>
-                        <Label layoutX="143.0" layoutY="102.0" text="názov:" textFill="#d9d9d9">
+                        <Label fx:id="createNameL" layoutX="143.0" layoutY="102.0" text="názov:" textFill="#d9d9d9">
                             <font>
                                 <Font name="Segoe UI" size="18.0" />
                             </font>
                         </Label>
-                        <Label layoutX="143.0" layoutY="142.0" text="autor:" textFill="#d9d9d9">
+                        <Label fx:id="createAuthorL" layoutX="143.0" layoutY="142.0" text="autor:" textFill="#d9d9d9">
                             <font>
                                 <Font name="Segoe UI" size="18.0" />
                             </font>
                         </Label>
-                        <Label layoutX="143.0" layoutY="182.0" text="značka:" textFill="#d9d9d9">
+                        <Label fx:id="createBrandL" layoutX="143.0" layoutY="182.0" text="značka:" textFill="#d9d9d9">
                             <font>
                                 <Font name="Segoe UI" size="18.0" />
                             </font>
                         </Label>
-                        <Label layoutX="143.0" layoutY="222.0" text="rok výroby:" textFill="#d9d9d9">
+                        <Label fx:id="createYearL" layoutX="143.0" layoutY="222.0" text="rok výroby:" textFill="#d9d9d9">
                             <font>
                                 <Font name="Segoe UI" size="18.0" />
                             </font>
                         </Label>
-                        <Label layoutX="143.0" layoutY="262.0" text="krajina pôvodu:" textFill="#d9d9d9">
+                        <Label fx:id="createCountryL" layoutX="143.0" layoutY="262.0" text="krajina pôvodu:" textFill="#d9d9d9">
                             <font>
                                 <Font name="Segoe UI" size="18.0" />
                             </font>
                         </Label>
-                        <Label layoutX="143.0" layoutY="302.0" text="žáner:" textFill="#d9d9d9">
+                        <Label fx:id="createGenreL" layoutX="143.0" layoutY="302.0" text="žáner:" textFill="#d9d9d9">
                             <font>
                                 <Font name="Segoe UI" size="18.0" />
                             </font>
                         </Label>
-                        <Label layoutX="143.0" layoutY="342.0" text="rozmery:" textFill="#d9d9d9">
+                        <Label fx:id="createDimensionsL" layoutX="143.0" layoutY="342.0" text="rozmery:" textFill="#d9d9d9">
                             <font>
                                 <Font name="Segoe UI" size="18.0" />
                             </font>
                         </Label>
-                        <Label layoutX="143.0" layoutY="382.0" text="nákupná cena:" textFill="#d9d9d9">
+                        <Label fx:id="createPriceL" layoutX="143.0" layoutY="382.0" text="nákupná cena:" textFill="#d9d9d9">
                             <font>
                                 <Font name="Segoe UI" size="18.0" />
                             </font>
                         </Label>
-                        <Label layoutX="143.0" layoutY="422.0" text="predpokladaná hodnota:" textFill="#d9d9d9">
+                        <Label fx:id="createValueL" layoutX="143.0" layoutY="422.0" text="predpokladaná hodnota:" textFill="#d9d9d9">
                             <font>
                                 <Font name="Segoe UI" size="18.0" />
                             </font>
                         </Label>
-                        <Label layoutX="604.0" layoutY="100.0" text="miesto nadobudnutia:" textFill="#d9d9d9">
+                        <Label fx:id="createAqPlaceL" layoutX="604.0" layoutY="100.0" text="miesto nadobudnutia:" textFill="#d9d9d9">
                             <font>
                                 <Font name="Segoe UI" size="18.0" />
                             </font>
                         </Label>
-                        <Label layoutX="604.0" layoutY="140.0" text="dátum nadobudnutia:" textFill="#d9d9d9">
+                        <Label fx:id="createDateL" layoutX="604.0" layoutY="140.0" text="dátum nadobudnutia:" textFill="#d9d9d9">
                             <font>
                                 <Font name="Segoe UI" size="18.0" />
                             </font>
                         </Label>
-                        <Label layoutX="604.0" layoutY="222.0" text="popis:" textFill="#d9d9d9">
+                        <Label fx:id="createNoteL" layoutX="604.0" layoutY="222.0" text="popis:" textFill="#d9d9d9">
                             <font>
                                 <Font name="Segoe UI" size="18.0" />
                             </font>
@@ -153,7 +153,20 @@
                         <Font name="Segoe UI" size="15.0" />
                      </font>
                   </TextArea>
-                  <Button fx:id="createPDF" layoutX="928.0" layoutY="519.0" mnemonicParsing="false" onAction="#createPDF" prefHeight="30.0" prefWidth="80.0" styleClass="regularButt" stylesheets="@style.css" text="PDF" />
+                  <Button fx:id="createPDF" layoutX="868.0" layoutY="507.0" mnemonicParsing="false" onAction="#createPDF" prefHeight="36.0" prefWidth="140.0" styleClass="regularButt" stylesheets="@style.css" text="PDF">
+                     <font>
+                        <Font size="13.0" />
+                     </font></Button>
+                  <Button fx:id="editItemB" layoutX="139.0" layoutY="507.0" mnemonicParsing="false" onAction="#editItem" prefHeight="36.0" prefWidth="100.0" styleClass="regularButt" stylesheets="@style.css" text="upravit">
+                     <font>
+                        <Font name="Segoe UI" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="removeItemB" layoutX="257.0" layoutY="507.0" mnemonicParsing="false" onAction="#removeItem" prefHeight="36.0" prefWidth="100.0" styleClass="regularButt" stylesheets="@style.css" text="odstranit">
+                     <font>
+                        <Font name="Segoe UI" size="14.0" />
+                     </font>
+                  </Button>
                     </children>
                 </Pane>
          </center>

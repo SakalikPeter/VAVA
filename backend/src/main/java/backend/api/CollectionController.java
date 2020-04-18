@@ -19,17 +19,12 @@ public class CollectionController {
 
     @PostMapping()
     public void addCollection(@RequestBody Collection collection) {
-        System.out.println(collection.getName() + collection.getUserId() + collection.getSize());
         collectionService.addCollection(collection);
     }
 
     @GetMapping("/userId/{userId}")
     public ArrayList<Collection> getCollections(@PathVariable int userId) {
-        ArrayList<Collection> collections = collectionService.getCollections(userId);
-        for (Collection collection : collections) {
-            System.out.println(collection.getName());
-        }
-        return collections;
+        return collectionService.getCollections(userId);
     }
 
     @DeleteMapping("/id/{id}")

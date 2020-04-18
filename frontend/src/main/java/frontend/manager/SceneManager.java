@@ -22,6 +22,7 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 public class SceneManager {
 
@@ -78,6 +79,8 @@ public class SceneManager {
     }
 
     public void showCollection(ArrayList<Item> items, VBox container) {
+        ResourceBundle resourceBundle = ResourceBundle.getBundle(App.getLanguage());
+
         if(items.size() > 0) {
             TableView<Item> table = new TableView<Item>();
             TableColumn<Item, String> column = new TableColumn<>();
@@ -90,42 +93,15 @@ public class SceneManager {
             container.getChildren().clear();
             container.getChildren().add(table);
 
-            Button createItem = new Button("pridať");
-            createItem.getStyleClass().add("itemButt");
-            createItem.getStylesheets().add("style.css");
-            container.getChildren().add(createItem);
-            createItem.setOnAction(actionEvent -> changeScene("createItem.fxml", actionEvent));
-
             table.setOnMouseClicked((MouseEvent event) -> {
                 if (table.getSelectionModel().getSelectedItem() != null) {
                     App.setActItem(table.getSelectionModel().getSelectedItem());
                     System.out.println(App.getActItem().getName());
                 }
             });
-
-
-            Button showItemB = new Button("zobraziť");
-            showItemB.getStyleClass().add("itemButt");
-            showItemB.getStylesheets().add("style.css");
-            container.getChildren().add(showItemB);
-            showItemB.setOnAction(actionEvent -> changeScene("itemDetail.fxml", actionEvent));
-
-            Button updateItem = new Button("upraviť");
-            updateItem.getStyleClass().add("itemButt");
-            updateItem.getStylesheets().add("style.css");
-            container.getChildren().add(updateItem);
-            updateItem.setOnAction(actionEvent -> changeScene("updateItem.fxml", actionEvent));
-
-            Button deleteItem = new Button("odstrániť");
-            deleteItem.getStyleClass().add("itemButt");
-            deleteItem.getStylesheets().add("style.css");
-            container.getChildren().add(deleteItem);
-            deleteItem.setOnAction(actionEvent -> {
-                App.getItemManager().removeItem(App.getActItem().getId());
-            });
         }
         else {
-            Button button = new Button("pridať predmet");
+            Button button = new Button(resourceBundle.getString("MainController.addItemB"));
             button.setPrefWidth(160);
             button.setPrefHeight(45);
             button.getStylesheets().add("style.css");
@@ -135,7 +111,7 @@ public class SceneManager {
             Label label = new Label();
             label.getStylesheets().add("style.css");
             label.getStyleClass().add("itsEmptyLabel");
-            label.setText("Je tu smutno! Pridaj sem niečo.");
+            label.setText(resourceBundle.getString("MainController.emptyNoticeL"));
             VBox.setMargin(label, new Insets(20, 0,0,0));
             container.getChildren().clear();
             container.getChildren().add(button);

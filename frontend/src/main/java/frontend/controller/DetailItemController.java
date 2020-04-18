@@ -14,10 +14,21 @@ import java.io.FileOutputStream;
 import java.sql.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ResourceBundle;
 
 public class DetailItemController {
-    private SceneManager sceneManager = App.getSceneManager();
-    private ItemManager itemManager = App.getItemManager();
+    public Label createNameL;
+    public Label createAuthorL;
+    public Label createBrandL;
+    public Label createYearL;
+    public Label createCountryL;
+    public Label createGenreL;
+    public Label createDimensionsL;
+    public Label createPriceL;
+    public Label createValueL;
+    public Label createAqPlaceL;
+    public Label createDateL;
+    public Label createNoteL;
 
     public Button createPDF;
 
@@ -35,8 +46,30 @@ public class DetailItemController {
     public Label dateL;
     public TextArea noteL;
     public Label itemNameBig;
+    public Button editItemB;
+    public Button removeItemB;
+
+    private SceneManager sceneManager = App.getSceneManager();
+    private ItemManager itemManager = App.getItemManager();
 
     public void initialize() {
+        ResourceBundle resourceBundle = ResourceBundle.getBundle(App.getLanguage());
+
+        editItemB.setText(resourceBundle.getString("MainController.editItemB"));
+        removeItemB.setText(resourceBundle.getString("MainController.removeItemButt"));
+        createPDF.setText(resourceBundle.getString("ItemController.createPDF"));
+        createNameL.setText(resourceBundle.getString("ItemController.createNameL"));
+        createAuthorL.setText(resourceBundle.getString("ItemController.createAuthorL"));
+        createBrandL.setText(resourceBundle.getString("ItemController.createBrandL"));
+        createYearL.setText(resourceBundle.getString("ItemController.createYearL"));
+        createCountryL.setText(resourceBundle.getString("ItemController.createCountryL"));
+        createGenreL.setText(resourceBundle.getString("ItemController.createGenreL"));
+        createDimensionsL.setText(resourceBundle.getString("ItemController.createDimensionsL"));
+        createPriceL.setText(resourceBundle.getString("ItemController.createPriceL"));
+        createValueL.setText(resourceBundle.getString("ItemController.createValueL"));
+        createAqPlaceL.setText(resourceBundle.getString("ItemController.createAqPlaceL"));
+        createDateL.setText(resourceBundle.getString("ItemController.createDateL"));
+        createNoteL.setText(resourceBundle.getString("ItemController.createNoteL"));
         showItem();
     }
     public void backHome(ActionEvent actionEvent) {
@@ -67,6 +100,14 @@ public class DetailItemController {
 
     public void createPDF(ActionEvent actionEvent) {
         App.getPdfManager().createPDF();
+    }
+
+    public void editItem(ActionEvent actionEvent) {
+        sceneManager.changeScene("updateItem.fxml", actionEvent);
+    }
+
+    public void removeItem(ActionEvent actionEvent) {
+        itemManager.removeItem(App.getActItem().getId());
     }
 }
 

@@ -19,56 +19,56 @@
       <TextField fx:id="updateItemValue" layoutX="390.0" layoutY="438.0" />
       <TextField fx:id="updateItemAcqLoc" layoutX="390.0" layoutY="472.0" />
       <DatePicker fx:id="updateItemAcqDate" layoutX="746.0" layoutY="173.0" />
-      <TextArea fx:id="updateItemNote" layoutX="643.0" layoutY="328.0" prefHeight="210.0" prefWidth="300.0" />
+      <TextArea fx:id="updateItemNote" layoutX="643.0" layoutY="328.0" prefHeight="210.0" prefWidth="300.0" wrapText="true" />
       <Button fx:id="updateItemB" layoutX="843.0" layoutY="622.0" mnemonicParsing="false" onAction="#updateItem" prefHeight="35.0" prefWidth="100.0" styleClass="regularButt" stylesheets="@style.css" text="upraviť">
          <font>
             <Font size="14.0" />
          </font></Button>
-      <Label layoutX="235.0" layoutY="163.0" text="Názov" textFill="#d9d9d9">
+      <Label fx:id="createNameL" layoutX="235.0" layoutY="163.0" text="Názov" textFill="#d9d9d9">
          <font>
             <Font name="Segoe UI" size="15.0" />
          </font></Label>
-      <Label layoutX="235.0" layoutY="195.0" text="Autor" textFill="#d9d9d9">
+      <Label fx:id="createAuthorL" layoutX="235.0" layoutY="195.0" text="Autor" textFill="#d9d9d9">
          <font>
             <Font name="Segoe UI" size="15.0" />
          </font></Label>
-      <Label layoutX="235.0" layoutY="229.0" text="Značka" textFill="#d9d9d9">
+      <Label fx:id="createBrandL" layoutX="235.0" layoutY="229.0" text="Značka" textFill="#d9d9d9">
          <font>
             <Font name="Segoe UI" size="15.0" />
          </font></Label>
-      <Label layoutX="235.0" layoutY="265.0" text="Rok výroby" textFill="#d9d9d9">
+      <Label fx:id="createYearL" layoutX="235.0" layoutY="265.0" text="Rok výroby" textFill="#d9d9d9">
          <font>
             <Font name="Segoe UI" size="15.0" />
          </font></Label>
-      <Label layoutX="235.0" layoutY="300.0" text="Krajina pôvodu" textFill="#d9d9d9">
+      <Label fx:id="createCountryL" layoutX="235.0" layoutY="300.0" text="Krajina pôvodu" textFill="#d9d9d9">
          <font>
             <Font name="Segoe UI" size="15.0" />
          </font></Label>
-      <Label layoutX="235.0" layoutY="337.0" text="Žáner" textFill="#d9d9d9">
+      <Label fx:id="createGenreL" layoutX="235.0" layoutY="337.0" text="Žáner" textFill="#d9d9d9">
          <font>
             <Font name="Segoe UI" size="15.0" />
          </font></Label>
-      <Label layoutX="235.0" layoutY="373.0" text="Rozmery" textFill="#d9d9d9">
+      <Label fx:id="createDimensionsL" layoutX="235.0" layoutY="373.0" text="Rozmery" textFill="#d9d9d9">
          <font>
             <Font name="Segoe UI" size="15.0" />
          </font></Label>
-      <Label layoutX="235.0" layoutY="407.0" text="Cena" textFill="#d9d9d9">
+      <Label fx:id="createPriceL" layoutX="235.0" layoutY="407.0" text="Cena" textFill="#d9d9d9">
          <font>
             <Font name="Segoe UI" size="15.0" />
          </font></Label>
-      <Label layoutX="235.0" layoutY="439.0" text="Hodnota" textFill="#d9d9d9">
+      <Label fx:id="createValueL" layoutX="235.0" layoutY="439.0" text="Hodnota" textFill="#d9d9d9">
          <font>
             <Font name="Segoe UI" size="15.0" />
          </font></Label>
-      <Label layoutX="235.0" layoutY="473.0" text="Miesto nadobudnutia" textFill="#d9d9d9">
+      <Label fx:id="createAqPlaceL" layoutX="235.0" layoutY="473.0" text="Miesto nadobudnutia" textFill="#d9d9d9">
          <font>
             <Font name="Segoe UI" size="15.0" />
          </font></Label>
-      <Label layoutX="563.0" layoutY="176.0" text="Dátum nadobudnutia" textFill="#d9d9d9">
+      <Label fx:id="createDateL" layoutX="563.0" layoutY="176.0" text="Dátum nadobudnutia" textFill="#d9d9d9">
          <font>
             <Font name="Segoe UI" size="15.0" />
          </font></Label>
-      <Label layoutX="563.0" layoutY="329.0" text="Poznámka" textFill="#d9d9d9">
+      <Label fx:id="createNoteL" layoutX="563.0" layoutY="329.0" text="Poznámka" textFill="#d9d9d9">
          <font>
             <Font name="Segoe UI" size="15.0" />
          </font></Label>

@@ -88,6 +88,16 @@
                <center>
                   <VBox fx:id="collContainer" alignment="TOP_CENTER" prefHeight="638.0" prefWidth="753.0" BorderPane.alignment="CENTER" />
                </center>
+               <bottom>
+                  <Pane fx:id="bottomButtonPanel" prefHeight="91.0" prefWidth="840.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Button fx:id="addItemB" layoutX="27.0" layoutY="21.0" mnemonicParsing="false" onAction="#addItem" prefHeight="35.0" prefWidth="130.0" styleClass="itemButt" stylesheets="@style.css" text="pridat" />
+                        <Button fx:id="showItemB" layoutX="465.0" layoutY="21.0" mnemonicParsing="false" onAction="#showItem" prefHeight="35.0" prefWidth="100.0" styleClass="itemButt" stylesheets="@style.css" text="zobrazit" />
+                        <Button fx:id="editItemB" layoutX="589.0" layoutY="21.0" mnemonicParsing="false" onAction="#editItem" prefHeight="35.0" prefWidth="100.0" styleClass="itemButt" stylesheets="@style.css" text="upravit" />
+                        <Button fx:id="removeItemButt" layoutX="713.0" layoutY="21.0" mnemonicParsing="false" onAction="#removeItem" prefHeight="35.0" prefWidth="100.0" styleClass="itemButt" stylesheets="@style.css" text="odstranit" />
+                     </children>
+                  </Pane>
+               </bottom>
             </BorderPane>
          </center>
       </BorderPane>

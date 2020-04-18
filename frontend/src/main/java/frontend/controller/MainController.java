@@ -12,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Paint;
 
@@ -31,6 +32,11 @@ public class MainController {
     public Button removeCollectionB;
     public Button changeCollectionB;
     public Button activUserB;
+    public Button addItemB;
+    public Button showItemB;
+    public Button editItemB;
+    public Button removeItemButt;
+    public Pane bottomButtonPanel;
 
     private CollectionManager collectionManager = App.getCollectionManager();
     private SceneManager sceneManager = App.getSceneManager();
@@ -46,7 +52,12 @@ public class MainController {
         changeCollectionB.setText(resourceBundle.getString("MainController.changeCollectionB"));
         activUserB.setText(App.getActivUser().getUserName());
 
+        addItemB.setText(resourceBundle.getString("MainController.addItemB"));
+        showItemB.setText(resourceBundle.getString("MainController.showItemB"));
+        editItemB.setText(resourceBundle.getString("MainController.editItemB"));
+        removeItemButt.setText(resourceBundle.getString("MainController.removeItemButt"));
 
+        bottomButtonPanel.setVisible(false);
         removeCollectionB.setVisible(false);
         changeCollectionB.setVisible(false);
         getAllCollections();
@@ -77,6 +88,8 @@ public class MainController {
 
         sceneManager.showCollection(items, collContainer);
         removeCollectionB.setVisible(true);
+        changeCollectionB.setVisible(true);
+        bottomButtonPanel.setVisible(true);
     }
 
     public void newCollectionWindow(ActionEvent actionEvent) {
@@ -90,10 +103,6 @@ public class MainController {
         sceneManager.setContent("createCollection.fxml", mainContent);
     }
 
-    public void backHome(ActionEvent actionEvent) {
-        sceneManager.changeScene("Home.fxml", actionEvent);
-    }
-
     public void settings(ActionEvent actionEvent) {
         sceneManager.changeScene("settings.fxml", actionEvent);
     }
@@ -101,5 +110,21 @@ public class MainController {
     public void removeCollection(ActionEvent actionEvent) {
         collectionManager.removeCollection();
 
+    }
+
+    public void addItem(ActionEvent actionEvent) {
+        sceneManager.changeScene("createItem.fxml", actionEvent);
+    }
+
+    public void showItem(ActionEvent actionEvent) {
+        sceneManager.changeScene("itemDetail.fxml", actionEvent);
+    }
+
+    public void editItem(ActionEvent actionEvent) {
+        sceneManager.changeScene("updateItem.fxml", actionEvent);
+    }
+
+    public void removeItem(ActionEvent actionEvent) {
+        itemManager.removeItem(App.getActItem().getId());
     }
 }
