@@ -2,6 +2,8 @@ package backend.dao;
 
 import backend.model.Item;
 import backend.model.ItemRowMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -12,6 +14,7 @@ import java.util.ArrayList;
 public class ItemDataAcces implements ItemDAO {
     @Autowired
     JdbcTemplate template;
+    Logger itemDAOLogger = LoggerFactory.getLogger(ItemDataAcces.class);
 
     @Override
     public int insert(Item item) {
@@ -23,12 +26,15 @@ public class ItemDataAcces implements ItemDAO {
                 item.getAuthor(), item.getGenre(), item.getBrand(), item.getAcquirementLocation(), item.getDimensions(), item.getOriginCountry(),
                 item.getPrice(), item.getValue(), item.getNote());
 
+        itemDAOLogger.info("Successfuly inserted item: " + item.getName());
+
         return 1;
     }
 
     @Override
     public ArrayList<Item> select(int collectionId) {
         String query = "select * from vava.item where collection_id_fk = ?";
+        itemDAOLogger.info("Successfuly selected item with collection ID: " + collectionId);
 
         return (ArrayList<Item>) template.query(query, new ItemRowMapper(), collectionId);
     }
@@ -36,8 +42,9 @@ public class ItemDataAcces implements ItemDAO {
     @Override
     public int delete(int id) {
         String query = "delete from vava.item where element_id = ?";
-
         template.update(query, id);
+        itemDAOLogger.info("Successfuly deleted item with ID: " + id);
+
         return 1;
     }
 

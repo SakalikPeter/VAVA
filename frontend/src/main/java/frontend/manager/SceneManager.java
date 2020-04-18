@@ -16,12 +16,16 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class SceneManager {
+
+    Logger logger = LoggerFactory.getLogger(SceneManager.class);
 
     public void changeScene(String name, ActionEvent actionEvent){
         Parent root;
@@ -32,9 +36,10 @@ public class SceneManager {
             stage.setTitle("Collection tracker");
             stage.setScene(new Scene(root, 1100, 800));
             stage.show();
+            logger.info("Successfuly changed scene: " + name);
         }
         catch (IOException e) {
-            e.printStackTrace();
+            logger.error("IOException exception");
         }
     }
 
@@ -42,8 +47,9 @@ public class SceneManager {
         Parent root = null;
         try {
             root = FXMLLoader.load(getClass().getResource("/" + name));
+            logger.info("Successfuly setted content: " + name);
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error("IOException exception");
         }
         mainContent.setCenter(root);
     }
@@ -61,7 +67,7 @@ public class SceneManager {
                 try {
                     controller.getCollection(collection);
                 } catch (SQLException e) {
-                    e.printStackTrace();
+                    logger.error("SQL exception");
                 }
             });
             buttons.add(button);
@@ -136,5 +142,4 @@ public class SceneManager {
             container.getChildren().add(label);
         }
     }
-
 }
