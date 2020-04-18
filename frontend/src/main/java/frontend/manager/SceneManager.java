@@ -78,7 +78,7 @@ public class SceneManager {
         container.getChildren().addAll(buttons);
     }
 
-    public void showCollection(ArrayList<Item> items, VBox container) {
+    public boolean showCollection(ArrayList<Item> items, VBox container) {
         ResourceBundle resourceBundle = ResourceBundle.getBundle(App.getLanguage());
 
         if(items.size() > 0) {
@@ -99,6 +99,7 @@ public class SceneManager {
                     System.out.println(App.getActItem().getName());
                 }
             });
+            return true;
         }
         else {
             Button button = new Button(resourceBundle.getString("MainController.addItemB"));
@@ -116,6 +117,7 @@ public class SceneManager {
             container.getChildren().clear();
             container.getChildren().add(button);
             container.getChildren().add(label);
+            return false;
         }
     }
 }

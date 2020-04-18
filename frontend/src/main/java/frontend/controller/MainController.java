@@ -88,13 +88,19 @@ public class MainController {
 
         ArrayList<Item> items = itemManager.getAllItems(collection.getId());
 
-        sceneManager.showCollection(items, collContainer);
-        removeCollectionB.setVisible(true);
-        changeCollectionB.setVisible(true);
-        bottomButtonPanel.setVisible(true);
+        boolean status = sceneManager.showCollection(items, collContainer);
+
+        if(status) {
+            removeCollectionB.setVisible(true);
+            changeCollectionB.setVisible(true);
+            bottomButtonPanel.setVisible(true);
+        }
     }
 
     public void newCollectionWindow(ActionEvent actionEvent) {
+        removeCollectionB.setVisible(false);
+        changeCollectionB.setVisible(false);
+
         myCollectionsB.getStyleClass().clear();
         myCollectionsB.getStyleClass().add("colButton");
 
