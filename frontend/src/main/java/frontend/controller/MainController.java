@@ -91,10 +91,10 @@ public class MainController {
         boolean status = sceneManager.showCollection(items, collContainer);
 
         if(status) {
-            removeCollectionB.setVisible(true);
-            changeCollectionB.setVisible(true);
             bottomButtonPanel.setVisible(true);
         }
+        removeCollectionB.setVisible(true);
+        changeCollectionB.setVisible(true);
     }
 
     public void newCollectionWindow(ActionEvent actionEvent) {

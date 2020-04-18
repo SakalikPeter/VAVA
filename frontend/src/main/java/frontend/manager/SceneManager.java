@@ -83,10 +83,16 @@ public class SceneManager {
 
         if(items.size() > 0) {
             TableView<Item> table = new TableView<Item>();
-            TableColumn<Item, String> column = new TableColumn<>();
-            table.getColumns().add(column);
+            TableColumn<Item, String> nameCol = new TableColumn<>(resourceBundle.getString("ItemController.createNameL"));
+            TableColumn<Item, String> authorCol = new TableColumn<>(resourceBundle.getString("ItemController.createAuthorL"));
+            TableColumn<Item, Integer> yearCol = new TableColumn<>(resourceBundle.getString("ItemController.createYearL"));
+            table.getColumns().add(nameCol);
+            table.getColumns().add(authorCol);
+            table.getColumns().add(yearCol);
 
-            column.setCellValueFactory(new PropertyValueFactory<>("name"));    //toto je docasne bude tam nazov predmetu + mozno dalsie informacie o predmete
+            nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+            authorCol.setCellValueFactory(new PropertyValueFactory<>("author"));
+            yearCol.setCellValueFactory(new PropertyValueFactory<>("productionYear"));
             table.getItems().addAll(items);
             table.getStylesheets().add("style.css");
 

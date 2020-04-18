@@ -3,92 +3,112 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1100.0" style="-fx-background-color: #1A1B1C;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.controller.EditItemController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800" prefWidth="1100" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.controller.EditItemController">
    <children>
-      <TextField fx:id="updateItemName" layoutX="390.0" layoutY="162.0" />
-      <TextField fx:id="updateItemAuthor" layoutX="390.0" layoutY="194.0" />
-      <TextField fx:id="updateItemBrand" layoutX="390.0" layoutY="228.0" />
-      <TextField fx:id="updateItemProdYear" layoutX="390.0" layoutY="264.0" />
-      <TextField fx:id="updateItemOrigCountry" layoutX="390.0" layoutY="299.0" />
-      <TextField fx:id="updateItemGenre" layoutX="390.0" layoutY="336.0" />
-      <TextField fx:id="updateItemDimensions" layoutX="390.0" layoutY="372.0" />
-      <TextField fx:id="updateItemPrice" layoutX="390.0" layoutY="406.0" />
-      <TextField fx:id="updateItemValue" layoutX="390.0" layoutY="438.0" />
-      <TextField fx:id="updateItemAcqLoc" layoutX="390.0" layoutY="472.0" />
-      <DatePicker fx:id="updateItemAcqDate" layoutX="746.0" layoutY="173.0" />
-      <TextArea fx:id="updateItemNote" layoutX="643.0" layoutY="328.0" prefHeight="210.0" prefWidth="300.0" wrapText="true" />
-      <Button fx:id="updateItemB" layoutX="843.0" layoutY="622.0" mnemonicParsing="false" onAction="#updateItem" prefHeight="35.0" prefWidth="100.0" styleClass="regularButt" stylesheets="@style.css" text="upraviť">
-         <font>
-            <Font size="14.0" />
-         </font></Button>
-      <Label fx:id="createNameL" layoutX="235.0" layoutY="163.0" text="Názov" textFill="#d9d9d9">
-         <font>
-            <Font name="Segoe UI" size="15.0" />
-         </font></Label>
-      <Label fx:id="createAuthorL" layoutX="235.0" layoutY="195.0" text="Autor" textFill="#d9d9d9">
-         <font>
-            <Font name="Segoe UI" size="15.0" />
-         </font></Label>
-      <Label fx:id="createBrandL" layoutX="235.0" layoutY="229.0" text="Značka" textFill="#d9d9d9">
-         <font>
-            <Font name="Segoe UI" size="15.0" />
-         </font></Label>
-      <Label fx:id="createYearL" layoutX="235.0" layoutY="265.0" text="Rok výroby" textFill="#d9d9d9">
-         <font>
-            <Font name="Segoe UI" size="15.0" />
-         </font></Label>
-      <Label fx:id="createCountryL" layoutX="235.0" layoutY="300.0" text="Krajina pôvodu" textFill="#d9d9d9">
-         <font>
-            <Font name="Segoe UI" size="15.0" />
-         </font></Label>
-      <Label fx:id="createGenreL" layoutX="235.0" layoutY="337.0" text="Žáner" textFill="#d9d9d9">
-         <font>
-            <Font name="Segoe UI" size="15.0" />
-         </font></Label>
-      <Label fx:id="createDimensionsL" layoutX="235.0" layoutY="373.0" text="Rozmery" textFill="#d9d9d9">
-         <font>
-            <Font name="Segoe UI" size="15.0" />
-         </font></Label>
-      <Label fx:id="createPriceL" layoutX="235.0" layoutY="407.0" text="Cena" textFill="#d9d9d9">
-         <font>
-            <Font name="Segoe UI" size="15.0" />
-         </font></Label>
-      <Label fx:id="createValueL" layoutX="235.0" layoutY="439.0" text="Hodnota" textFill="#d9d9d9">
-         <font>
-            <Font name="Segoe UI" size="15.0" />
-         </font></Label>
-      <Label fx:id="createAqPlaceL" layoutX="235.0" layoutY="473.0" text="Miesto nadobudnutia" textFill="#d9d9d9">
-         <font>
-            <Font name="Segoe UI" size="15.0" />
-         </font></Label>
-      <Label fx:id="createDateL" layoutX="563.0" layoutY="176.0" text="Dátum nadobudnutia" textFill="#d9d9d9">
-         <font>
-            <Font name="Segoe UI" size="15.0" />
-         </font></Label>
-      <Label fx:id="createNoteL" layoutX="563.0" layoutY="329.0" text="Poznámka" textFill="#d9d9d9">
-         <font>
-            <Font name="Segoe UI" size="15.0" />
-         </font></Label>
-      <Pane prefHeight="100.0" prefWidth="1100.0">
-         <children>
-            <Button fx:id="backB" layoutX="19.0" layoutY="29.0" mnemonicParsing="false" onAction="#backHome" prefHeight="50.0" prefWidth="87.0" styleClass="settButt" stylesheets="@style.css">
-               <graphic>
-                  <ImageView fitHeight="45.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@img/back.png" />
-                     </image>
-                  </ImageView>
-               </graphic></Button>
-            <Label fx:id="itemNameL" layoutX="210.0" layoutY="27.0" text="Nazov" textFill="#d9d9d9">
-               <font>
-                  <Font name="Segoe UI" size="40.0" />
-               </font>
-            </Label>
-            <Line endX="1307.0" layoutX="-207.0" layoutY="100.0" opacity="0.25" startX="-100.0" stroke="#707070" />
-         </children>
-      </Pane>
+      <BorderPane prefHeight="800.0" prefWidth="1100.0" style="-fx-background-color: #1A1B1C;">
+         <top>
+            <Pane prefHeight="100.0" prefWidth="1100.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="backB" layoutX="19.0" layoutY="29.0" mnemonicParsing="false" onAction="#backHome" prefHeight="50.0" prefWidth="87.0" styleClass="settButt" stylesheets="@style.css">
+                     <graphic>
+                        <ImageView fitHeight="45.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/back.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Label fx:id="itemNameL" layoutX="210.0" layoutY="27.0" text="pridať predmet do kolekcie" textFill="#d9d9d9">
+                     <font>
+                        <Font name="Segoe UI" size="40.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </top>
+         <center>
+            <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <TextField fx:id="updateItemName" layoutX="284.0" layoutY="96.0" prefHeight="30.0" prefWidth="200.0" styleClass="textField" stylesheets="@style.css" />
+                  <TextField fx:id="updateItemAuthor" layoutX="284.0" layoutY="136.0" prefHeight="30.0" prefWidth="200.0" styleClass="textField" stylesheets="@style.css" />
+                  <TextField fx:id="updateItemBrand" layoutX="284.0" layoutY="176.0" prefHeight="30.0" prefWidth="200.0" styleClass="textField" stylesheets="@style.css" />
+                  <TextField fx:id="updateItemProdYear" layoutX="284.0" layoutY="216.0" prefHeight="30.0" prefWidth="200.0" styleClass="textField" stylesheets="@style.css" />
+                  <TextField fx:id="updateItemOrigCountry" layoutX="284.0" layoutY="256.0" prefHeight="30.0" prefWidth="200.0" styleClass="textField" stylesheets="@style.css" />
+                  <TextField fx:id="updateItemGenre" layoutX="284.0" layoutY="296.0" prefHeight="30.0" prefWidth="200.0" styleClass="textField" stylesheets="@style.css" />
+                  <TextField fx:id="updateItemDimensions" layoutX="284.0" layoutY="336.0" prefHeight="30.0" prefWidth="200.0" styleClass="textField" stylesheets="@style.css" />
+                  <TextField fx:id="updateItemPrice" layoutX="733.0" layoutY="98.0" prefHeight="30.0" prefWidth="200.0" styleClass="textField" stylesheets="@style.css" />
+                  <TextField fx:id="updateItemValue" layoutX="733.0" layoutY="138.0" prefHeight="30.0" prefWidth="200.0" styleClass="textField" stylesheets="@style.css" />
+                  <TextField fx:id="updateItemAcqLoc" layoutX="733.0" layoutY="180.0" prefHeight="30.0" prefWidth="200.0" styleClass="textField" stylesheets="@style.css" />
+                  <DatePicker fx:id="updateItemAcqDate" layoutX="733.0" layoutY="219.0" prefHeight="30.0" prefWidth="200.0" />
+                  <TextArea fx:id="updateItemNote" layoutX="611.0" layoutY="263.0" prefHeight="200.0" prefWidth="325.0" />
+                  <Button fx:id="updateItemB" layoutX="816.0" layoutY="493.0" mnemonicParsing="false" onAction="#updateItem" prefHeight="35.0" prefWidth="120.0" styleClass="regularButt" stylesheets="@style.css" text="pridať">
+                     <font>
+                        <Font name="Segoe UI" size="13.0" />
+                     </font></Button>
+                  <Label fx:id="createNameL" layoutX="164.0" layoutY="101.0" text="názov" textFill="#d9d9d9">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="createAuthorL" layoutX="164.0" layoutY="141.0" text="autor" textFill="#d9d9d9">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="createBrandL" layoutX="164.0" layoutY="181.0" text="značka" textFill="#d9d9d9">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="createYearL" layoutX="164.0" layoutY="221.0" text="rok výroby" textFill="#d9d9d9">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="createCountryL" layoutX="164.0" layoutY="261.0" text="krajina pôvodu" textFill="#d9d9d9">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="createGenreL" layoutX="164.0" layoutY="301.0" text="žáner" textFill="#d9d9d9">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="createDimensionsL" layoutX="164.0" layoutY="341.0" text="rozmery" textFill="#d9d9d9">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="createPriceL" layoutX="552.0" layoutY="101.0" text="nákupná cena" textFill="#d9d9d9">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="createValueL" layoutX="552.0" layoutY="142.0" text="predpokladaná hodnota" textFill="#d9d9d9">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="createAqPlaceL" layoutX="552.0" layoutY="186.0" text="miesto nadobudnutia" textFill="#d9d9d9">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="createDateL" layoutX="552.0" layoutY="222.0" text="dátum nadobudnutia" textFill="#d9d9d9">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="createNoteL" layoutX="552.0" layoutY="262.0" text="popis" textFill="#d9d9d9">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </center>
+      </BorderPane>
    </children>
 </AnchorPane>

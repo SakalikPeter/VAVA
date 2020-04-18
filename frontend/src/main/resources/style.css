@@ -79,10 +79,6 @@
     -fx-background-color: #252627;
 }
 
-.textField {
-    -fx-width: 200;
-    -fx-height: 30;
-}
 
 .table-view {
     -fx-background-color: none;
@@ -98,7 +94,7 @@
 }
 
 .table-view .table-row-cell:even {
-    -fx-background-color: #252627;
+    -fx-background-color: #1A1B1C;
 }
 
 .table-view .table-column {
@@ -108,17 +104,18 @@
     -fx-text-fill: #D9D9D9;
     -fx-alignment: CENTER;
     -fx-border-color: none;
+    -fx-pref-width: 200px;
 }
 
 .table-view .column-header,
 .table-view .column-header .filler,
 .table-view .column-header-background .filler {
-    -fx-background-color: black;
+    -fx-background-color: #252627;
 }
 
 .table-view .column-header .label{
-    -fx-text-fill: #1C1C1C;
-    -fx-font-size: 15;
+    -fx-text-fill: #D9D9D9;
+    -fx-font-size: 20;
     -fx-font-family: "Segoe UI";
     -fx-font-weight: normal;
     -fx-text-alignment: center;

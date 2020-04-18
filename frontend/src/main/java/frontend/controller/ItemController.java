@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 
 import java.sql.Date;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class ItemController {
@@ -62,7 +63,7 @@ public class ItemController {
         createNoteL.setText(resourceBundle.getString("ItemController.createNoteL"));
     }
 
-    public void backHome(ActionEvent actionEvent) {
+    public void backHome(ActionEvent actionEvent) throws SQLException {
         sceneManager.changeScene("Home.fxml", actionEvent);
     }
 
