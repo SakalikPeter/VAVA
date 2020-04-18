@@ -48,7 +48,7 @@ public class SceneManager {
         mainContent.setCenter(root);
     }
 
-    public ArrayList<Button> addCollectionButtons(MainController controller, VBox container, ArrayList<Collection> collections) {
+    public void addCollectionButtons(MainController controller, VBox container, ArrayList<Collection> collections) {
         ArrayList<Button> buttons = new ArrayList<>();
         for(Collection collection : collections) {
             Button button = new Button(collection.getName());
@@ -69,7 +69,6 @@ public class SceneManager {
 
         container.getChildren().clear();
         container.getChildren().addAll(buttons);
-        return buttons;
     }
 
     public void showCollection(ArrayList<Item> items, VBox container) {

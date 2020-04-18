@@ -5,11 +5,24 @@ import frontend.model.Collection;
 import frontend.model.User;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+
+import java.util.ResourceBundle;
 
 public class CollectionController {
     public Button createCollectionB;
     public TextField newCollectionTF;
+    public Label collectionNameL;
+
+    private String lang = App.getLanguage();
+
+    public void initialize() {
+        ResourceBundle resourceBundle = ResourceBundle.getBundle(lang);
+
+        createCollectionB.setText(resourceBundle.getString("CollectionController.createCollectionB"));
+        collectionNameL.setText(resourceBundle.getString("CollectionController.collectionNameL"));
+    }
 
     public void createCollection(ActionEvent actionEvent) {
         User user = App.getActivUser();

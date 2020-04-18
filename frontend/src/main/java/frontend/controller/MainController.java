@@ -17,6 +17,7 @@ import javafx.scene.paint.Paint;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 public class MainController {
     public Button settingsB;
@@ -29,12 +30,23 @@ public class MainController {
     public AnchorPane main;
     public Button removeCollectionB;
     public Button changeCollectionB;
+    public Button activUserB;
 
     private CollectionManager collectionManager = App.getCollectionManager();
     private SceneManager sceneManager = App.getSceneManager();
     private ItemManager itemManager = App.getItemManager();
+    private String lang = App.getLanguage();
+    private ResourceBundle resourceBundle = ResourceBundle.getBundle(lang);
 
     public void initialize() throws SQLException {
+        settingsB.setText(resourceBundle.getString("MainController.settingsB"));
+        myCollectionsB.setText(resourceBundle.getString("MainController.myCollectionsB"));
+        newCollectionB.setText(resourceBundle.getString("MainController.newCollectionB"));
+        removeCollectionB.setText(resourceBundle.getString("MainController.removeCollectionB"));
+        changeCollectionB.setText(resourceBundle.getString("MainController.changeCollectionB"));
+        activUserB.setText(App.getActivUser().getUserName());
+
+
         removeCollectionB.setVisible(false);
         changeCollectionB.setVisible(false);
         getAllCollections();
@@ -47,7 +59,7 @@ public class MainController {
         newCollectionB.getStyleClass().add("colButton");
 
         User user = App.getActivUser();
-        collectionNameLabel.setText("moje kolekcie");
+        collectionNameLabel.setText(resourceBundle.getString("MainController.myCollectionsB"));
         collectionNameLabel.setTextFill(Paint.valueOf("#788CDE"));
         collectionNameLabel.setVisible(true);
         myCollectionsB.getStyleClass().add("activeBcoll");
@@ -71,7 +83,7 @@ public class MainController {
         myCollectionsB.getStyleClass().clear();
         myCollectionsB.getStyleClass().add("colButton");
 
-        collectionNameLabel.setText("vytvoriť kolekciu");
+        collectionNameLabel.setText(resourceBundle.getString("CollectionController.addCollectionL"));
         collectionNameLabel.setTextFill(Paint.valueOf("#4AA079"));
         collectionNameLabel.setVisible(true);
         newCollectionB.getStyleClass().add("activeBnewColl");

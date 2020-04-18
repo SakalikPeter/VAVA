@@ -24,6 +24,8 @@ public class App extends Application {
     private static Collection collection;
     private static Item actItem;
 
+    private static String language = "SK";
+
     @Override
     public void start(Stage stage) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/login.fxml"));
@@ -78,5 +80,13 @@ public class App extends Application {
 
     public static void setPdfManager(PdfManager pdfManager) {
         App.pdfManager = pdfManager;
+    }
+
+    public static String getLanguage() {
+        return language;
+    }
+
+    public static void setLanguage(String language) {
+        App.language = language;
     }
 }

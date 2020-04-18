@@ -8,21 +8,22 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 
 import java.sql.Date;
+import java.util.ResourceBundle;
 
 public class ItemController {
-    public TextField updateItemName;
-    public TextField updateItemAuthor;
-    public TextField updateItemBrand;
-    public TextField updateItemProdYear;
-    public TextField updateItemOrigCountry;
-    public TextField updateItemGenre;
-    public TextField updateItemDimensions;
-    public TextField updateItemPrice;
-    public TextField updateItemValue;
-    public TextField updateItemAcqLoc;
-    public DatePicker updateItemAcqDate;
-    public TextArea updateItemNote;
-    public Button updateItemB;
+    public Label createBigLabel;
+    public Label createNameL;
+    public Label createAuthorL;
+    public Label createBrandL;
+    public Label createYearL;
+    public Label createCountryL;
+    public Label createGenreL;
+    public Label createDimensionsL;
+    public Label createPriceL;
+    public Label createValueL;
+    public Label createAqPlaceL;
+    public Label createDateL;
+    public Label createNoteL;
 
     private SceneManager sceneManager = App.getSceneManager();
     private ItemManager itemManager = App.getItemManager();
@@ -41,6 +42,25 @@ public class ItemController {
     public TextArea itemNote;
     public Button insertItem;
     public Button backB;
+
+    public void initialize() {
+        ResourceBundle resourceBundle = ResourceBundle.getBundle(App.getLanguage());
+
+        insertItem.setText(resourceBundle.getString("ItemController.inserItemB"));
+        createBigLabel.setText(resourceBundle.getString("ItemController.createBigLabel"));
+        createNameL.setText(resourceBundle.getString("ItemController.createNameL"));
+        createAuthorL.setText(resourceBundle.getString("ItemController.createAuthorL"));
+        createBrandL.setText(resourceBundle.getString("ItemController.createBrandL"));
+        createYearL.setText(resourceBundle.getString("ItemController.createYearL"));
+        createCountryL.setText(resourceBundle.getString("ItemController.createCountryL"));
+        createGenreL.setText(resourceBundle.getString("ItemController.createGenreL"));
+        createDimensionsL.setText(resourceBundle.getString("ItemController.createDimensionsL"));
+        createPriceL.setText(resourceBundle.getString("ItemController.createPriceL"));
+        createValueL.setText(resourceBundle.getString("ItemController.createValueL"));
+        createAqPlaceL.setText(resourceBundle.getString("ItemController.createAqPlaceL"));
+        createDateL.setText(resourceBundle.getString("ItemController.createDateL"));
+        createNoteL.setText(resourceBundle.getString("ItemController.createNoteL"));
+    }
 
     public void backHome(ActionEvent actionEvent) {
         sceneManager.changeScene("Home.fxml", actionEvent);
@@ -64,47 +84,5 @@ public class ItemController {
                 brand, acquirementLocation, dimensions, originCountry, price, value, note);
 
         itemManager.addItem(item);
-    }
-
-    public void updateItem(ActionEvent actionEvent) {
-
-        if (!updateItemName.getText().trim().isEmpty()) {
-            App.getActItem().setName(updateItemName.getText());
-        }
-        if (!updateItemAuthor.getText().trim().isEmpty()) {
-            App.getActItem().setAuthor(updateItemAuthor.getText());
-        }
-        if (!updateItemBrand.getText().trim().isEmpty()) {
-            App.getActItem().setBrand(updateItemBrand.getText());
-        }
-        if (!updateItemProdYear.getText().trim().isEmpty()) {
-            App.getActItem().setProductionYear(Integer.parseInt(updateItemProdYear.getText()));
-        }
-        if (!updateItemOrigCountry.getText().trim().isEmpty()) {
-            App.getActItem().setOriginCountry(updateItemOrigCountry.getText());
-        }
-        if (!updateItemGenre.getText().trim().isEmpty()) {
-            App.getActItem().setGenre(updateItemGenre.getText());
-        }
-        if (!updateItemDimensions.getText().trim().isEmpty()) {
-            App.getActItem().setDimensions(updateItemDimensions.getText());
-        }
-        if (!updateItemPrice.getText().trim().isEmpty()) {
-            App.getActItem().setPrice(Integer.parseInt(updateItemPrice.getText()));
-        }
-        if (!updateItemValue.getText().trim().isEmpty()) {
-            App.getActItem().setValue(Integer.parseInt(updateItemValue.getText()));
-        }
-        if (!updateItemAcqLoc.getText().trim().isEmpty()) {
-            App.getActItem().setAcquirementLocation(updateItemAcqLoc.getText());
-        }
-        if (updateItemAcqDate.getValue() != null) {
-            App.getActItem().setAcquirementDate(Date.valueOf(updateItemAcqDate.getValue()));
-        }
-        if (!updateItemNote.getText().trim().isEmpty()) {
-            App.getActItem().setNote(updateItemNote.getText());
-        }
-
-        itemManager.updateItem(App.getActItem());
     }
 }

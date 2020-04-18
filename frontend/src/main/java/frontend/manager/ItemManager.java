@@ -54,8 +54,8 @@ public class ItemManager {
         }
     }
 
-    public void updateItem(Item item) {
-        this.removeItem(item.getId());
-        this.addItem(item);
+    public void updateItem(Item oldItem, Item newItem) {
+        this.removeItem(oldItem.getId());
+        this.addItem(newItem);
     }
 }

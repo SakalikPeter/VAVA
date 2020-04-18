@@ -15,7 +15,7 @@
                   <Pane prefHeight="170.0" prefWidth="260.0" style="-fx-background-color: #252627;">
                      <children>
                         <Line endX="123.0" layoutX="128.0" layoutY="170.0" startX="-120.0" style="-fx-stroke: #D9D9D9; -fx-stroke-width: 0.2;" />
-                        <Button alignment="CENTER" layoutX="1.0" layoutY="44.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="260.0" styleClass="colButton" stylesheets="@style.css" text="prihlásený používateľ" textFill="#d9d9d9">
+                        <Button fx:id="activUserB" alignment="CENTER" layoutX="1.0" layoutY="44.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="260.0" styleClass="colButton" stylesheets="@style.css" text="prihlásený používateľ" textFill="#d9d9d9">
                            <font>
                               <Font name="Segoe UI Light" size="15.0" />
                            </font>

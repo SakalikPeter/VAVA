@@ -20,7 +20,7 @@
                            </image>
                         </ImageView>
                      </graphic></Button>
-                  <Label layoutX="210.0" layoutY="27.0" text="nastavenia" textFill="#d9d9d9">
+                  <Label fx:id="bigSettingsL" layoutX="210.0" layoutY="27.0" text="nastavenia" textFill="#d9d9d9">
                      <font>
                         <Font name="Segoe UI" size="40.0" />
                      </font>
@@ -32,17 +32,17 @@
          <center>
             <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label layoutX="341.0" layoutY="84.0" prefHeight="37.0" prefWidth="72.0" text="profil" textFill="#d9d9d9">
+                  <Label fx:id="settProfileL" layoutX="341.0" layoutY="84.0" prefHeight="37.0" prefWidth="222.0" text="profil" textFill="#d9d9d9">
                      <font>
                         <Font name="Segoe UI" size="30.0" />
                      </font>
                   </Label>
-                  <Label layoutX="377.0" layoutY="133.0" prefHeight="35.0" prefWidth="195.0" text="prihlaseny pouzivatel" textFill="#d9d9d9">
+                  <Label fx:id="settUserL" layoutX="377.0" layoutY="133.0" prefHeight="35.0" prefWidth="195.0" text="prihlaseny pouzivatel" textFill="#d9d9d9">
                      <font>
                         <Font name="Segoe UI" size="15.0" />
                      </font>
                   </Label>
-                  <Label layoutX="342.0" layoutY="329.0" prefHeight="37.0" prefWidth="72.0" text="jazyk" textFill="#d9d9d9">
+                  <Label fx:id="settLanguageL" layoutX="342.0" layoutY="329.0" prefHeight="37.0" prefWidth="202.0" text="jazyk" textFill="#d9d9d9">
                      <font>
                         <Font name="Segoe UI" size="30.0" />
                      </font>
@@ -52,28 +52,28 @@
                         <Image url="@img/user.png" />
                      </image>
                   </ImageView>
-                  <Button layoutX="616.0" layoutY="137.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="140.0" style="-fx-background-color: #252627;" styleClass="settB" stylesheets="@style.css" text="vymazať profil" textFill="#d9d9d9">
+                  <Button fx:id="deleteProfileB" layoutX="616.0" layoutY="137.0" mnemonicParsing="false" onAction="#deleteProfile" prefHeight="31.0" prefWidth="140.0" style="-fx-background-color: #252627;" styleClass="settB" stylesheets="@style.css" text="vymazať profil" textFill="#d9d9d9">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <Button layoutX="616.0" layoutY="178.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="140.0" style="-fx-background-color: #252627;" styleClass="settB" stylesheets="@style.css" text="upraviť profil" textFill="#d9d9d9">
+                  <Button fx:id="changeProfileB" layoutX="616.0" layoutY="178.0" mnemonicParsing="false" onAction="#changeProfile" prefHeight="31.0" prefWidth="140.0" style="-fx-background-color: #252627;" styleClass="settB" stylesheets="@style.css" text="upraviť profil" textFill="#d9d9d9">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <Button layoutX="616.0" layoutY="219.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="140.0" style="-fx-background-color: #252627;" styleClass="settB" stylesheets="@style.css" text="odhlásiť" textFill="#d9d9d9">
+                  <Button fx:id="signOffB" layoutX="616.0" layoutY="219.0" mnemonicParsing="false" onAction="#signOff" prefHeight="45.0" prefWidth="140.0" style="-fx-background-color: #252627;" styleClass="settB" stylesheets="@style.css" text="odhlásiť" textFill="#d9d9d9">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Button>
                   <Line endX="315.0" layoutX="442.0" layoutY="291.0" opacity="0.25" startX="-100.0" stroke="#707070" />
-                  <ComboBox layoutX="378.0" layoutY="400.0" prefHeight="35.0" prefWidth="190.0" />
-                  <Button layoutX="616.0" layoutY="395.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="140.0" style="-fx-background-color: #252627;" styleClass="settB" stylesheets="@style.css" text="zmeniť" textFill="#d9d9d9">
+                  <Button fx:id="changeLanguageB" layoutX="616.0" layoutY="395.0" mnemonicParsing="false" onAction="#changeLanguage" prefHeight="45.0" prefWidth="140.0" style="-fx-background-color: #252627;" styleClass="settB" stylesheets="@style.css" text="zmeniť" textFill="#d9d9d9">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Button>
+                  <ChoiceBox fx:id="languagePicker" layoutX="382.0" layoutY="400.0" prefHeight="35.0" prefWidth="190.0" />
                </children>
             </Pane>
          </center>

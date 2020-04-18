@@ -15,7 +15,7 @@
                      <font>
                         <Font name="Segoe UI" size="15.0" />
                      </font></TextField>
-                  <Label layoutX="244.0" layoutY="121.0" text="názov kolekcie" textFill="#d9d9d9">
+                  <Label fx:id="collectionNameL" layoutX="244.0" layoutY="121.0" text="názov kolekcie" textFill="#d9d9d9">
                      <font>
                         <Font name="Segoe UI" size="20.0" />
                      </font>
