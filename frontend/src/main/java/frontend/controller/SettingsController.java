@@ -1,12 +1,17 @@
 package frontend.controller;
 
 import frontend.App;
+import frontend.manager.CollectionManager;
 import frontend.manager.SceneManager;
+import frontend.manager.UserManager;
+import frontend.model.Collection;
+import frontend.model.User;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class SettingsController {
@@ -22,6 +27,9 @@ public class SettingsController {
     public ChoiceBox<String> languagePicker;
 
     private SceneManager sceneManager = App.getSceneManager();
+    private CollectionManager collectionManager = App.getCollectionManager();
+    private UserManager userManager = App.getUserManager();
+    private User user = App.getActivUser();
     private String lang = App.getLanguage();
 
     public void initialize() {
@@ -49,12 +57,23 @@ public class SettingsController {
     }
 
     public void deleteProfile(ActionEvent actionEvent) {
+        collectionManager.removeAllCollections(user);
+        userManager.removeUser(user);
+
+        sceneManager.changeScene("login.fxml", actionEvent);
     }
 
-    public void changeProfile(ActionEvent actionEvent) {
+    public void editProfile(ActionEvent actionEvent) {
+
     }
 
     public void signOff(ActionEvent actionEvent) {
+        App.setLanguage("SK");
+        App.setActItem(null);
+        App.setActivUser(null);
+        App.setCollection(null);
+
+        sceneManager.changeScene("login.fxml", actionEvent);
     }
 
     public void changeLanguage(ActionEvent actionEvent) {

@@ -117,7 +117,6 @@ public class MainController {
 
     public void removeCollection(ActionEvent actionEvent) {
         collectionManager.removeCollection();
-
     }
 
     public void addItem(ActionEvent actionEvent) {

@@ -18,4 +18,9 @@ public class UserService {
     public User getUser(String name, String password) {
         return userDAO.select(name, password);
     }
+
+    public int removeUser(int id) {
+        userDAO.delete(id);
+        return 1;
+    }
 }

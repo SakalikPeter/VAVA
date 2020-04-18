@@ -31,4 +31,16 @@ public class UserManager {
 
         return responseEntity.getBody();
     }
+
+    public void removeUser(User user) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        RestTemplate restTemplate = new RestTemplate();
+
+        String url = "http://localhost:8080/user/id/{id}";
+
+        HttpEntity<String> requestEntity = new HttpEntity<String>(headers);
+
+        ResponseEntity<Void> responseEntity = restTemplate.exchange(url, HttpMethod.DELETE, requestEntity, Void.class, user.getId());
+    }
 }

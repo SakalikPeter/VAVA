@@ -33,4 +33,14 @@ public class UserDataAcces implements UserDAO {
 
         return template.queryForObject(query, new UserRowMapper(), name, password);
     }
+
+    @Override
+    public int delete(int id) {
+        String query = "delete from vava.user where user_id = ?";
+
+        template.update(query, id);
+        userDAOLogger.info("Succesfully deleted user with id: " + id);
+
+        return 1;
+    }
 }
