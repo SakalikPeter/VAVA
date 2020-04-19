@@ -5,6 +5,8 @@ import frontend.manager.ItemManager;
 import frontend.model.Item;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Date;
 import java.time.LocalDate;
@@ -41,6 +43,7 @@ public class EditItemController {
     public Label createNoteL;
 
     private ItemManager itemManager = App.getItemManager();
+    Logger logger = LoggerFactory.getLogger(EditItemController.class);
 
     public void initialize() {
         Item item = App.getActItem();
@@ -75,23 +78,28 @@ public class EditItemController {
         updateItemNote.setText(item.getNote());
     }
     public void updateItem(ActionEvent actionEvent) {
-        String name = updateItemName.getText();
-        String author = updateItemAuthor.getText();
-        String brand = updateItemBrand.getText();
-        int productionYear = Integer.parseInt(updateItemProdYear.getText());
-        String originCountry = updateItemOrigCountry.getText();
-        String genre = updateItemGenre.getText();
-        String dimensions = updateItemDimensions.getText();
-        int price = Integer.parseInt(updateItemPrice.getText());
-        int value = Integer.parseInt(updateItemValue.getText());
-        String acquirementLocation = updateItemAcqLoc.getText();
-        Date acquirementDate = Date.valueOf(updateItemAcqDate.getValue());
-        String note = updateItemNote.getText();
+        try {
+            String name = updateItemName.getText();
+            String author = updateItemAuthor.getText();
+            String brand = updateItemBrand.getText();
+            int productionYear = Integer.parseInt(updateItemProdYear.getText());
+            String originCountry = updateItemOrigCountry.getText();
+            String genre = updateItemGenre.getText();
+            String dimensions = updateItemDimensions.getText();
+            int price = Integer.parseInt(updateItemPrice.getText());
+            int value = Integer.parseInt(updateItemValue.getText());
+            String acquirementLocation = updateItemAcqLoc.getText();
+            Date acquirementDate = Date.valueOf(updateItemAcqDate.getValue());
+            String note = updateItemNote.getText();
 
-        Item newItem = new Item(name, App.getCollection().getId(), acquirementDate, productionYear, author, genre,
-                brand, acquirementLocation, dimensions, originCountry, price, value, note);
+            Item newItem = new Item(name, App.getCollection().getId(), acquirementDate, productionYear, author, genre,
+                    brand, acquirementLocation, dimensions, originCountry, price, value, note);
 
-        itemManager.updateItem(App.getActItem(), newItem);
+            itemManager.updateItem(App.getActItem(), newItem);
+        } catch(Exception e) {
+            logger.error("Incorrect integer value");
+        }
+
     }
 
     public void backHome(ActionEvent actionEvent) {
