@@ -27,6 +27,7 @@ public class ItemController {
     public Label createAqPlaceL;
     public Label createDateL;
     public Label createNoteL;
+    public Label createMandatoryL;
 
     private SceneManager sceneManager = App.getSceneManager();
     private ItemManager itemManager = App.getItemManager();
@@ -52,18 +53,19 @@ public class ItemController {
     public void initialize() {
         insertItem.setText(resourceBundle.getString("ItemController.inserItemB"));
         createBigLabel.setText(resourceBundle.getString("ItemController.createBigLabel"));
-        createNameL.setText(resourceBundle.getString("ItemController.createNameL"));
-        createAuthorL.setText(resourceBundle.getString("ItemController.createAuthorL"));
+        createNameL.setText(resourceBundle.getString("ItemController.createNameL") + " *");
+        createAuthorL.setText(resourceBundle.getString("ItemController.createAuthorL") + " *");
         createBrandL.setText(resourceBundle.getString("ItemController.createBrandL"));
-        createYearL.setText(resourceBundle.getString("ItemController.createYearL"));
+        createYearL.setText(resourceBundle.getString("ItemController.createYearL") + " *");
         createCountryL.setText(resourceBundle.getString("ItemController.createCountryL"));
         createGenreL.setText(resourceBundle.getString("ItemController.createGenreL"));
         createDimensionsL.setText(resourceBundle.getString("ItemController.createDimensionsL"));
-        createPriceL.setText(resourceBundle.getString("ItemController.createPriceL"));
-        createValueL.setText(resourceBundle.getString("ItemController.createValueL"));
+        createPriceL.setText(resourceBundle.getString("ItemController.createPriceL") + " *");
+        createValueL.setText(resourceBundle.getString("ItemController.createValueL") + " *");
         createAqPlaceL.setText(resourceBundle.getString("ItemController.createAqPlaceL"));
-        createDateL.setText(resourceBundle.getString("ItemController.createDateL"));
+        createDateL.setText(resourceBundle.getString("ItemController.createDateL") + " *");
         createNoteL.setText(resourceBundle.getString("ItemController.createNoteL"));
+        createMandatoryL.setText(resourceBundle.getString("ItemController.createMandatoryL"));
     }
 
     public void backHome(ActionEvent actionEvent) throws SQLException {
@@ -91,6 +93,7 @@ public class ItemController {
             itemManager.addItem(item);
 
             sceneManager.showDialog(resourceBundle.getString("ItemController.info"));
+            sceneManager.changeScene("createItem.fxml", actionEvent);
         } catch (Exception e) {
             logger.error("Incorrect integer value");
             sceneManager.showWarning(resourceBundle.getString("ItemController.warning"));

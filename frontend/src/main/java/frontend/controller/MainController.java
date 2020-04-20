@@ -133,7 +133,6 @@ public class MainController {
     }
 
     public void removeItem(ActionEvent actionEvent) throws SQLException {
-
         itemManager.removeItem(App.getActItem().getId());
         sceneManager.showDialog(resourceBundle.getString("ItemController.info3"));
         getCollection(App.getCollection());

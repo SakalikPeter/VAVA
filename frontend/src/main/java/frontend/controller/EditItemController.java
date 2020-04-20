@@ -38,6 +38,7 @@ public class EditItemController {
     public Label createAqPlaceL;
     public Label createDateL;
     public Label createNoteL;
+    public Label createMandatoryL;
 
     private ItemManager itemManager = App.getItemManager();
     private Logger logger = LoggerFactory.getLogger(EditItemController.class);
@@ -47,18 +48,19 @@ public class EditItemController {
         Item item = App.getActItem();
 
         updateItemB.setText(resourceBundle.getString("ItemController.editB"));
-        createNameL.setText(resourceBundle.getString("ItemController.createNameL"));
-        createAuthorL.setText(resourceBundle.getString("ItemController.createAuthorL"));
+        createNameL.setText(resourceBundle.getString("ItemController.createNameL")+ " *");
+        createAuthorL.setText(resourceBundle.getString("ItemController.createAuthorL")+ " *");
         createBrandL.setText(resourceBundle.getString("ItemController.createBrandL"));
-        createYearL.setText(resourceBundle.getString("ItemController.createYearL"));
+        createYearL.setText(resourceBundle.getString("ItemController.createYearL")+ " *");
         createCountryL.setText(resourceBundle.getString("ItemController.createCountryL"));
         createGenreL.setText(resourceBundle.getString("ItemController.createGenreL"));
         createDimensionsL.setText(resourceBundle.getString("ItemController.createDimensionsL"));
-        createPriceL.setText(resourceBundle.getString("ItemController.createPriceL"));
-        createValueL.setText(resourceBundle.getString("ItemController.createValueL"));
+        createPriceL.setText(resourceBundle.getString("ItemController.createPriceL")+ " *");
+        createValueL.setText(resourceBundle.getString("ItemController.createValueL")+ " *");
         createAqPlaceL.setText(resourceBundle.getString("ItemController.createAqPlaceL"));
-        createDateL.setText(resourceBundle.getString("ItemController.createDateL"));
+        createDateL.setText(resourceBundle.getString("ItemController.createDateL")+ " *");
         createNoteL.setText(resourceBundle.getString("ItemController.createNoteL"));
+        createMandatoryL.setText(resourceBundle.getString("ItemController.createMandatoryL"));
 
         itemNameL.setText(item.getName());
         updateItemName.setText(item.getName());

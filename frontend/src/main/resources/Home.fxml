@@ -86,7 +86,7 @@
                   </Pane>
                </top>
                <center>
-                  <VBox fx:id="collContainer" alignment="TOP_CENTER" prefHeight="638.0" prefWidth="753.0" BorderPane.alignment="CENTER" />
+                  <VBox fx:id="collContainer" alignment="TOP_CENTER" BorderPane.alignment="CENTER" />
                </center>
                <bottom>
                   <Pane fx:id="bottomButtonPanel" prefHeight="91.0" prefWidth="840.0" BorderPane.alignment="CENTER">

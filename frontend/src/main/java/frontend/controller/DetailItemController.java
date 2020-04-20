@@ -110,6 +110,7 @@ public class DetailItemController {
     public void removeItem(ActionEvent actionEvent) {
         itemManager.removeItem(App.getActItem().getId());
         sceneManager.showDialog(resourceBundle.getString("ItemController.info3"));
+        sceneManager.changeScene("Home.fxml", actionEvent);
     }
 }
 
