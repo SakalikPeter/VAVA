@@ -30,6 +30,7 @@ public class SettingsController {
     private String lang = App.getLanguage();
     private ResourceBundle resourceBundle = ResourceBundle.getBundle(lang);
 
+    // inicializacia textu a jazyka
     public void initialize() {
 
         languagePicker.getItems().add("slovenčina");
@@ -50,10 +51,12 @@ public class SettingsController {
         changeLanguageB.setText(resourceBundle.getString("SettingsController.changeLanguageB"));
     }
 
+    // navrat na domovsku stranku
     public void backHome(ActionEvent actionEvent) {
         sceneManager.changeScene("Home.fxml", actionEvent);
     }
 
+    // vymazat profil
     public void deleteProfile(ActionEvent actionEvent) {
         collectionManager.removeAllCollections(user);
         userManager.removeUser(user);
@@ -62,10 +65,12 @@ public class SettingsController {
         sceneManager.changeScene("login.fxml", actionEvent);
     }
 
+    // prepnut na stranku upravit profil
     public void editProfile(ActionEvent actionEvent) {
         sceneManager.changeScene("updateUser.fxml", actionEvent);
     }
 
+    // odhlasit z aplikacie
     public void signOff(ActionEvent actionEvent) {
         App.setLanguage("SK");
         App.setActItem(null);
@@ -75,6 +80,7 @@ public class SettingsController {
         sceneManager.changeScene("login.fxml", actionEvent);
     }
 
+    // nastavit jazyk
     public void changeLanguage(ActionEvent actionEvent) {
         String language = languagePicker.getValue();
 

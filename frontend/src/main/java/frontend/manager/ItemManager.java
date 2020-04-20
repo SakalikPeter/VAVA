@@ -9,6 +9,7 @@ import java.util.Arrays;
 
 public class ItemManager {
 
+    // request na ziskanie vsetkych prvok kolekcie
     public ArrayList<Item> getAllItems(int id) {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
@@ -22,6 +23,7 @@ public class ItemManager {
         return new ArrayList<>(Arrays.asList(responseEntity.getBody()));
     }
 
+    // request na pridanie prvku
     public void addItem(Item item) {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
@@ -34,8 +36,7 @@ public class ItemManager {
         ResponseEntity<Void> responseEntity = restTemplate.exchange(url, HttpMethod.POST, requestEntity, Void.class);
     }
 
-
-
+    // request na odstranenie prvku
     public void removeItem(int id) {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
@@ -48,12 +49,14 @@ public class ItemManager {
         ResponseEntity<Void> responseEntity = restTemplate.exchange(url, HttpMethod.DELETE, requestEntity, Void.class, id);
     }
 
+    // odstranenie prvkov v array liste
     public void removeAllItems(ArrayList<Item> items) {
         for(Item item : items) {
             this.removeItem(item.getId());
         }
     }
 
+    // upravenie prvku
     public void updateItem(Item oldItem, Item newItem) {
         this.removeItem(oldItem.getId());
         this.addItem(newItem);

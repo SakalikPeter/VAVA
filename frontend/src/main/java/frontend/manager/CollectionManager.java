@@ -15,6 +15,7 @@ public class CollectionManager {
     private ItemManager itemManager = App.getItemManager();
     private SceneManager sceneManager = App.getSceneManager();
 
+    // request na ziskanie zoznamu vsetkych kolekcii
     public ArrayList<Collection> getAllCollections(int id) {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
@@ -30,6 +31,7 @@ public class CollectionManager {
         return new ArrayList<>(Arrays.asList(responseEntity.getBody()));
     }
 
+    // request na vytvorenie kolekcie
     public void createCollection(Collection collection) {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
@@ -42,6 +44,7 @@ public class CollectionManager {
         ResponseEntity<Void> responseEntity = restTemplate.exchange(url, HttpMethod.POST, requestEntity, Void.class);
     }
 
+    //request na vymazanie kolekcie
     public void removeCollection() {
         Collection collection = App.getCollection();
         ArrayList<Item> items = App.getItemManager().getAllItems(collection.getId());
@@ -59,6 +62,7 @@ public class CollectionManager {
         ResponseEntity<Void> responseEntity = restTemplate.exchange(url, HttpMethod.DELETE, requestEntity, Void.class, collection.getId());
     }
 
+    // request na vymazanie kolekcie
     public void removeCollection(Collection collection) {
         ArrayList<Item> items = App.getItemManager().getAllItems(collection.getId());
         if(items.size() > 0) {
@@ -75,6 +79,7 @@ public class CollectionManager {
         ResponseEntity<Void> responseEntity = restTemplate.exchange(url, HttpMethod.DELETE, requestEntity, Void.class, collection.getId());
     }
 
+    // vymazanie vsetkych kolekcii pouzivatela
     public void removeAllCollections(User user) {
         ArrayList<Collection> collections = App.getCollectionManager().getAllCollections(user.getId());
 
@@ -83,6 +88,7 @@ public class CollectionManager {
         }
     }
 
+    // request na upravenie kolekcie
     public void updateCollection(String name) {
         Collection collection = App.getCollection();
 

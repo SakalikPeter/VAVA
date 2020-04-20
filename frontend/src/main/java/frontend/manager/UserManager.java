@@ -7,6 +7,7 @@ import org.springframework.web.client.RestTemplate;
 
 public class UserManager {
 
+    // request na vytvorenie pouzivatela
     public void createUser(User user) {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
@@ -19,6 +20,7 @@ public class UserManager {
         ResponseEntity<Void> responseEntity = restTemplate.exchange(url, HttpMethod.POST, requestEntity, Void.class);
     }
 
+    // request na ziskanie pouzivatela
     public User getUser(String name, String password) {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
@@ -33,6 +35,7 @@ public class UserManager {
         return responseEntity.getBody();
     }
 
+    // request na odstranenie pouzivatela
     public void removeUser(User user) {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
@@ -45,6 +48,7 @@ public class UserManager {
         ResponseEntity<Void> responseEntity = restTemplate.exchange(url, HttpMethod.DELETE, requestEntity, Void.class, user.getId());
     }
 
+    // request na upravenie pouzivatela
     public void updateUser(String name, String newPassword) {
         User user = App.getActivUser();
         User updatedUser = user;

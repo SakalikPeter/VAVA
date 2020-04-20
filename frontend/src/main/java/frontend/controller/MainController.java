@@ -44,6 +44,7 @@ public class MainController {
     private String lang = App.getLanguage();
     private ResourceBundle resourceBundle = ResourceBundle.getBundle(lang);
 
+    // inicializacia textu a jazyka
     public void initialize() throws SQLException {
         settingsB.setText(resourceBundle.getString("MainController.settingsB"));
         myCollectionsB.setText(resourceBundle.getString("MainController.myCollectionsB"));
@@ -63,6 +64,7 @@ public class MainController {
         getAllCollections();
     }
 
+    // ziskat vsetky kolekcie pouzivatela
     public void getAllCollections() throws SQLException {
         bottomButtonPanel.setVisible(false);
         removeCollectionB.setVisible(false);
@@ -80,6 +82,7 @@ public class MainController {
         sceneManager.addCollectionButtons(this, collContainer, collections);
     }
 
+    // ziskat kolekciu
     public void getCollection(Collection collection) throws SQLException {
         App.setCollection(collection);
 
@@ -97,6 +100,7 @@ public class MainController {
         changeCollectionB.setVisible(true);
     }
 
+    // prepnut sa na vytvorenie kolekciu
     public void newCollectionWindow(ActionEvent actionEvent) {
         removeCollectionB.setVisible(false);
         changeCollectionB.setVisible(false);
@@ -111,33 +115,40 @@ public class MainController {
         sceneManager.setContent("createCollection.fxml", mainContent);
     }
 
+    // prepnut sa na nastavenia
     public void settings(ActionEvent actionEvent) {
         sceneManager.changeScene("settings.fxml", actionEvent);
     }
 
+    // odstranit kolekciu a navrat na domovsku stranku
     public void removeCollection(ActionEvent actionEvent) {
         collectionManager.removeCollection();
         sceneManager.changeScene("Home.fxml", actionEvent);
     }
 
+    // prepnut sa na stranku pridat prvok do kolekcie
     public void addItem(ActionEvent actionEvent) {
         sceneManager.changeScene("createItem.fxml", actionEvent);
     }
 
+    // prepnut sa na stranku zobrazit prvok z kolekcie
     public void showItem(ActionEvent actionEvent) {
         sceneManager.changeScene("itemDetail.fxml", actionEvent);
     }
 
+    // prepnut sa na stranku upravit prvok z kolekcie
     public void editItem(ActionEvent actionEvent) {
         sceneManager.changeScene("updateItem.fxml", actionEvent);
     }
 
+    // prepnut sa na stranku vymazat prvok z kolekcie
     public void removeItem(ActionEvent actionEvent) throws SQLException {
         itemManager.removeItem(App.getActItem().getId());
         sceneManager.showDialog(resourceBundle.getString("ItemController.info3"));
         getCollection(App.getCollection());
     }
 
+    // prepnut sa na stranku upravit kolekciu
     public void editCollection(ActionEvent actionEvent) {
         sceneManager.changeScene("updateCollection.fxml", actionEvent);
     }

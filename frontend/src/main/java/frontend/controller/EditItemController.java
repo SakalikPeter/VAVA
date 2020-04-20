@@ -44,6 +44,7 @@ public class EditItemController {
     private Logger logger = LoggerFactory.getLogger(EditItemController.class);
     private ResourceBundle resourceBundle = ResourceBundle.getBundle(App.getLanguage());
 
+    // inicializacia textu a jazyka
     public void initialize() {
         Item item = App.getActItem();
 
@@ -76,6 +77,8 @@ public class EditItemController {
         updateItemAcqDate.setValue(item.getAcquirementDate().toLocalDate());
         updateItemNote.setText(item.getNote());
     }
+
+    // upravenie prvku
     public void updateItem(ActionEvent actionEvent) {
         try {
             String name = updateItemName.getText();
@@ -104,6 +107,7 @@ public class EditItemController {
 
     }
 
+    // navrat na domovsku stranku
     public void backHome(ActionEvent actionEvent) {
         App.getSceneManager().changeScene("Home.fxml", actionEvent);
     }

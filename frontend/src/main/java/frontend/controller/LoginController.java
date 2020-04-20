@@ -29,11 +29,13 @@ public class LoginController {
     public Button loginBLogIn;
     public AnchorPane mainPane;
 
+    // prihlasenie pouzivatela
     public void loginBLogIn(ActionEvent actionEvent) {
         String name = loginTFUserName.getText();
         String password = loginTFPassword.getText();
 
         User user = userManager.getUser(name, password);
+        //skontrolovanie pouzivatela
         if(user == null) {
             logger.info("Incorrect user name or password");
         }

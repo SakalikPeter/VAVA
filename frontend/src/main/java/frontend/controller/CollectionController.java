@@ -17,6 +17,7 @@ public class CollectionController {
 
     private String lang = App.getLanguage();
 
+    // inicializacia textu a jazyka
     public void initialize() {
         ResourceBundle resourceBundle = ResourceBundle.getBundle(lang);
 
@@ -24,6 +25,7 @@ public class CollectionController {
         collectionNameL.setText(resourceBundle.getString("CollectionController.collectionNameL"));
     }
 
+    // vytvorit kolekciu
     public void createCollection(ActionEvent actionEvent) {
         User user = App.getActivUser();
         String collectionName = newCollectionTF.getText();

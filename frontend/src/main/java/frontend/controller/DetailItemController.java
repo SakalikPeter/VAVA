@@ -53,6 +53,7 @@ public class DetailItemController {
     private ItemManager itemManager = App.getItemManager();
     private ResourceBundle resourceBundle = ResourceBundle.getBundle(App.getLanguage());
 
+    // inicializacia textu a jazyka
     public void initialize() {
         editItemB.setText(resourceBundle.getString("MainController.editItemB"));
         removeItemB.setText(resourceBundle.getString("MainController.removeItemButt"));
@@ -72,10 +73,12 @@ public class DetailItemController {
         showItem();
     }
 
+    // navrat na domovsku stranku
     public void backHome(ActionEvent actionEvent) {
         sceneManager.changeScene("Home.fxml", actionEvent);
     }
 
+    // zobraz prvok
     public void showItem() {
         Item item = App.getActItem();
         itemNameBig.setText(item.getName());
@@ -98,15 +101,18 @@ public class DetailItemController {
         noteL.setText(item.getNote());
     }
 
+    // vytvorit PDF
     public void createPDF(ActionEvent actionEvent) {
         App.getPdfManager().createPDF();
         sceneManager.showDialog(resourceBundle.getString("PDFController.info"));
     }
 
+    // upravit prvku
     public void editItem(ActionEvent actionEvent) {
         sceneManager.changeScene("updateItem.fxml", actionEvent);
     }
 
+    // vymaz prvok
     public void removeItem(ActionEvent actionEvent) {
         itemManager.removeItem(App.getActItem().getId());
         sceneManager.showDialog(resourceBundle.getString("ItemController.info3"));

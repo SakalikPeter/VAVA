@@ -23,7 +23,7 @@ public class UpdateUserController {
     private SceneManager sceneManager = App.getSceneManager();
     private User user = App.getActivUser();
 
-
+    // inicializacia textu a jazyka
     public void initialize() {
         ResourceBundle resourceBundle = ResourceBundle.getBundle(App.getLanguage());
         nameTF.setText(user.getUserName());
@@ -33,10 +33,12 @@ public class UpdateUserController {
         updateNewPassL.setText(resourceBundle.getString("UpdateUser.updateNewPassL"));
     }
 
+    // navrat na domovsku stranku
     public void backHome(ActionEvent actionEvent) {
         sceneManager.changeScene("settings.fxml", actionEvent);
     }
 
+    // vykonat upravy
     public void update(ActionEvent actionEvent) {
         String name = nameTF.getText();
         String newPassword = newPasswordTF.getText();

@@ -50,6 +50,7 @@ public class ItemController {
     Logger logger = LoggerFactory.getLogger(ItemController.class);
     private ResourceBundle resourceBundle = ResourceBundle.getBundle(App.getLanguage());
 
+    // inicializacia textu a jazyka
     public void initialize() {
         insertItem.setText(resourceBundle.getString("ItemController.inserItemB"));
         createBigLabel.setText(resourceBundle.getString("ItemController.createBigLabel"));
@@ -68,10 +69,12 @@ public class ItemController {
         createMandatoryL.setText(resourceBundle.getString("ItemController.createMandatoryL"));
     }
 
+    // navrat na domovsku stranku
     public void backHome(ActionEvent actionEvent) throws SQLException {
         sceneManager.changeScene("Home.fxml", actionEvent);
     }
 
+    // vlozit prvok
     public void insertItem(ActionEvent actionEvent) {
         try {
             String name = itemName.getText();

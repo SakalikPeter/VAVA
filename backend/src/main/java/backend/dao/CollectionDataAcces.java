@@ -11,12 +11,14 @@ import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 
+/*Data access layer triedy Collection*/
 @Repository
 public class CollectionDataAcces implements CollectionDAO {
     @Autowired
     JdbcTemplate template;
     Logger collectionDAOLogger = LoggerFactory.getLogger(CollectionDataAcces.class);
 
+    // vlozit kolekciu do DB
     @Override
     public int insert(Collection collection) {
         String query = "insert into vava.collection(user_id_fk, name, size) VALUES(?,?,?)";
@@ -26,6 +28,7 @@ public class CollectionDataAcces implements CollectionDAO {
         return 1;
     }
 
+    // vybrat array list kolekcii z DB podla id pouzivatela
     @Override
     public ArrayList<Collection> select(int userId) {
         String query = "select * from vava.collection where user_id_fk = ?";
@@ -34,6 +37,7 @@ public class CollectionDataAcces implements CollectionDAO {
         return (ArrayList<Collection>) template.query(query, new CollectionRowMapper(), userId);
     }
 
+    // vymazat kolekciu z DB podla jej id
     @Override
     public int delete(int id) {
         String query = "delete from vava.collection where collection_id = ?";
@@ -43,6 +47,7 @@ public class CollectionDataAcces implements CollectionDAO {
         return 1;
     }
 
+    // upravit kolekciu v DB podla jej id
     @Override
     public int update(Collection collection) {
         String query = "update vava.collection set name = ? where collection_id = ?";
