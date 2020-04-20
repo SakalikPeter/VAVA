@@ -134,4 +134,8 @@ public class MainController {
     public void removeItem(ActionEvent actionEvent) {
         itemManager.removeItem(App.getActItem().getId());
     }
+
+    public void editCollection(ActionEvent actionEvent) {
+        sceneManager.changeScene("updateCollection.fxml", actionEvent);
+    }
 }

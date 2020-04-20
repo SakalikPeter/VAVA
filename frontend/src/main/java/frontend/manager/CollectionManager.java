@@ -83,4 +83,21 @@ public class CollectionManager {
         }
     }
 
+    public void updateCollection(String name) {
+        Collection collection = App.getCollection();
+
+        if(!name.equals("") && !name.equals(collection.getName())) {
+            collection.setName(name);
+
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.APPLICATION_JSON);
+            RestTemplate restTemplate = new RestTemplate();
+
+            String url = "http://localhost:8080/collection/update";
+
+            HttpEntity<Collection> requestEntity = new HttpEntity<Collection>(collection, headers);
+
+            ResponseEntity<Void> responseEntity = restTemplate.exchange(url, HttpMethod.POST, requestEntity, Void.class);
+        }
+    }
 }
