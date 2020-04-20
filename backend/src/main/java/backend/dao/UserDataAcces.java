@@ -43,4 +43,14 @@ public class UserDataAcces implements UserDAO {
 
         return 1;
     }
+
+    @Override
+    public int update(User user) {
+        String query = "update vava.user SET user_name = ?, password = ? where user_id = ?";
+
+        template.update(query, user.getUserName(), user.getPassword(), user.getId());
+        userDAOLogger.info("Succesfully updated user with id: " + user.getId());
+
+        return 1;
+    }
 }

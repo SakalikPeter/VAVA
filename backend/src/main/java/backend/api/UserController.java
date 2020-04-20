@@ -31,7 +31,12 @@ public class UserController {
     }
 
     @DeleteMapping("/id/{id}")
-    public void removeCollection(@PathVariable int id) {
+    public void removeUser(@PathVariable int id) {
         userService.removeUser(id);
+    }
+
+    @PostMapping("/update")
+    public void updateUser(@RequestBody User user) {
+        userService.updateUser(user);
     }
 }

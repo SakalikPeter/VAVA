@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800" prefWidth="1100" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.controller.UpdateUserController">
+    <children>
+        <BorderPane prefHeight="800.0" prefWidth="1100.0" style="-fx-background-color: #1A1B1C;">
+            <top>
+                <Pane prefHeight="100.0" prefWidth="1100.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <Button fx:id="backB" layoutX="19.0" layoutY="29.0" mnemonicParsing="false" onAction="#backHome" prefHeight="50.0" prefWidth="87.0" styleClass="settButt" stylesheets="@style.css">
+                            <graphic>
+                                <ImageView fitHeight="45.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@img/back.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic></Button>
+                        <Label fx:id="updateUserL" layoutX="210.0" layoutY="27.0" text="upravit profil" textFill="#d9d9d9">
+                            <font>
+                                <Font name="Segoe UI" size="40.0" />
+                            </font>
+                        </Label>
+                        <Line endX="1307.0" layoutX="-207.0" layoutY="100.0" opacity="0.25" startX="-100.0" stroke="#707070" />
+                    </children>
+                </Pane>
+            </top>
+            <center>
+                <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <Label fx:id="settUserL" layoutX="369.0" layoutY="144.0" prefHeight="35.0" prefWidth="136.0" text="meno" textFill="#d9d9d9">
+                            <font>
+                                <Font name="Segoe UI" size="20.0" />
+                            </font>
+                        </Label>
+                        <Button fx:id="updateB" layoutX="591.0" layoutY="280.0" mnemonicParsing="false" onAction="#update" prefHeight="45.0" prefWidth="140.0" style="-fx-background-color: #252627;" styleClass="settB" stylesheets="@style.css" text="upravit" textFill="#d9d9d9">
+                            <font>
+                                <Font size="15.0" />
+                            </font>
+                        </Button>
+                  <TextField fx:id="nameTF" layoutX="531.0" layoutY="144.0" prefHeight="35.0" prefWidth="200.0">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </TextField>
+                  <Label fx:id="updateNewPassL" layoutX="369.0" layoutY="212.0" prefHeight="35.0" prefWidth="136.0" text="nove heslo" textFill="#d9d9d9">
+                     <font>
+                        <Font name="Segoe UI" size="20.0" />
+                     </font>
+                  </Label>
+                  <PasswordField fx:id="newPasswordTF" layoutX="531.0" layoutY="212.0" prefHeight="35.0" prefWidth="200.0">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </PasswordField>
+                    </children>
+                </Pane>
+            </center>
+        </BorderPane>
+    </children>
+</AnchorPane>

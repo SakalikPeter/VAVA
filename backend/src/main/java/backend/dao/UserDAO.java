@@ -9,4 +9,5 @@ public interface UserDAO {
     int insert(User user);
     User select(String name, String password);
     int delete(int id);
+    int update(User user);
 }

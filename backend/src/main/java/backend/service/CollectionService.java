@@ -27,4 +27,9 @@ public class CollectionService {
         collectionDAO.delete(id);
         return 1;
     }
+
+    public int updateCollection(Collection collection) {
+        collectionDAO.update(collection);
+        return 1;
+    }
 }

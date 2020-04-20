@@ -7,4 +7,5 @@ public interface CollectionDAO {
     int insert(Collection collection);
     ArrayList<Collection> select(int userId);
     int delete(int id);
+    int update(Collection collection);
 }

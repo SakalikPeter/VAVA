@@ -47,9 +47,4 @@ public class ItemDataAcces implements ItemDAO {
 
         return 1;
     }
-
-    @Override
-    public int update(int id) {
-        return 0;
-    }
 }

@@ -11,7 +11,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class SettingsController {
@@ -64,7 +63,7 @@ public class SettingsController {
     }
 
     public void editProfile(ActionEvent actionEvent) {
-
+        sceneManager.changeScene("updateUser.fxml", actionEvent);
     }
 
     public void signOff(ActionEvent actionEvent) {

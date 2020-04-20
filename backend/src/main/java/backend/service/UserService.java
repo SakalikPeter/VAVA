@@ -23,4 +23,10 @@ public class UserService {
         userDAO.delete(id);
         return 1;
     }
+
+    public int updateUser(User user) {
+        userDAO.update(user);
+
+        return 1;
+    }
 }

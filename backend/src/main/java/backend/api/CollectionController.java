@@ -31,4 +31,9 @@ public class CollectionController {
     public void removeCollection(@PathVariable int id) {
         collectionService.removeCollection(id);
     }
+
+    @PostMapping("/update")
+    public void updateCollection(@RequestBody Collection collection) {
+        collectionService.updateCollection(collection);
+    }
 }

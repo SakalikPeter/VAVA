@@ -1,5 +1,6 @@
 package frontend.manager;
 
+import frontend.App;
 import frontend.model.User;
 import org.springframework.http.*;
 import org.springframework.web.client.RestTemplate;
@@ -42,5 +43,34 @@ public class UserManager {
         HttpEntity<String> requestEntity = new HttpEntity<String>(headers);
 
         ResponseEntity<Void> responseEntity = restTemplate.exchange(url, HttpMethod.DELETE, requestEntity, Void.class, user.getId());
+    }
+
+    public void updateUser(String name, String newPassword) {
+        User user = App.getActivUser();
+        User updatedUser = user;
+        boolean changed = false;
+
+        if(!name.equals(user.getUserName())) {
+            updatedUser.setUserName(name);
+            changed = true;
+        }
+        if(!newPassword.equals("")) {
+            updatedUser.setPassword(newPassword);
+            changed = true;
+        }
+
+        if(changed) {
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.APPLICATION_JSON);
+            RestTemplate restTemplate = new RestTemplate();
+
+            String url = "http://localhost:8080/user/update";
+
+            HttpEntity<User> requestEntity = new HttpEntity<User>(updatedUser, headers);
+
+            ResponseEntity<Void> responseEntity = restTemplate.exchange(url, HttpMethod.POST, requestEntity, Void.class);
+
+            App.setActivUser(updatedUser);
+        }
     }
 }

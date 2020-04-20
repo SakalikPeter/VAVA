@@ -42,4 +42,13 @@ public class CollectionDataAcces implements CollectionDAO {
 
         return 1;
     }
+
+    @Override
+    public int update(Collection collection) {
+        String query = "update vava.collection set name = ? where collection_id = ?";
+        template.update(query, collection.getName(), collection.getId());
+        collectionDAOLogger.info("Succesfuly updated collection with id: " + collection.getId());
+
+        return 1;
+    }
 }

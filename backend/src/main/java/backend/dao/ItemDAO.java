@@ -8,5 +8,4 @@ public interface ItemDAO {
     int insert(Item item);
     ArrayList<Item> select(int collectionId);
     int delete(int id);
-    int update(int id);
 }
