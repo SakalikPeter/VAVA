@@ -126,4 +126,30 @@ public class SceneManager {
             return false;
         }
     }
+
+    public void showDialog(String info) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Information Dialog");
+        alert.setHeaderText(null);
+        alert.setContentText(info);
+
+        DialogPane dialogPane = alert.getDialogPane();
+        dialogPane.getStylesheets().add("style.css");
+        dialogPane.getStyleClass().add("dialog");
+
+        alert.showAndWait();
+    }
+
+    public void showWarning(String warning) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Warning Dialog");
+        alert.setHeaderText(null);
+        alert.setContentText(warning);
+
+        DialogPane dialogPane = alert.getDialogPane();
+        dialogPane.getStylesheets().add("style.css");
+        dialogPane.getStyleClass().add("dialog");
+
+        alert.showAndWait();
+    }
 }

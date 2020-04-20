@@ -51,10 +51,9 @@ public class DetailItemController {
 
     private SceneManager sceneManager = App.getSceneManager();
     private ItemManager itemManager = App.getItemManager();
+    private ResourceBundle resourceBundle = ResourceBundle.getBundle(App.getLanguage());
 
     public void initialize() {
-        ResourceBundle resourceBundle = ResourceBundle.getBundle(App.getLanguage());
-
         editItemB.setText(resourceBundle.getString("MainController.editItemB"));
         removeItemB.setText(resourceBundle.getString("MainController.removeItemButt"));
         createPDF.setText(resourceBundle.getString("ItemController.createPDF"));
@@ -72,6 +71,7 @@ public class DetailItemController {
         createNoteL.setText(resourceBundle.getString("ItemController.createNoteL"));
         showItem();
     }
+
     public void backHome(ActionEvent actionEvent) {
         sceneManager.changeScene("Home.fxml", actionEvent);
     }
@@ -100,6 +100,7 @@ public class DetailItemController {
 
     public void createPDF(ActionEvent actionEvent) {
         App.getPdfManager().createPDF();
+        sceneManager.showDialog(resourceBundle.getString("PDFController.info"));
     }
 
     public void editItem(ActionEvent actionEvent) {
@@ -108,6 +109,7 @@ public class DetailItemController {
 
     public void removeItem(ActionEvent actionEvent) {
         itemManager.removeItem(App.getActItem().getId());
+        sceneManager.showDialog(resourceBundle.getString("ItemController.info3"));
     }
 }
 

@@ -22,7 +22,7 @@
          <font>
             <Font name="Segoe UI" size="20.0" />
          </font></Label>
-      <Button fx:id="loginBLogIn" layoutX="607.0" layoutY="474.0" mnemonicParsing="false" onAction="#loginBLogIn" prefHeight="40.0" prefWidth="130.0" style="-fx-background-color: #252627;" text="Prihlásiť sa" textFill="#d9d9d9">
+      <Button fx:id="loginBLogIn" layoutX="607.0" layoutY="474.0" mnemonicParsing="false" onAction="#loginBLogIn" prefHeight="40.0" prefWidth="130.0" style="-fx-background-color: #252627;" text="prihlásiť sa" textFill="#d9d9d9">
          <font>
             <Font name="Segoe UI" size="15.0" />
          </font></Button>
@@ -31,5 +31,10 @@
             <Font name="Segoe UI" size="50.0" />
          </font>
       </Label>
+      <Button fx:id="newProfileB" layoutX="331.0" layoutY="474.0" mnemonicParsing="false" onAction="#createProfile" prefHeight="40.0" prefWidth="130.0" style="-fx-background-color: #252627;" text="vytvotiť profil" textFill="#d9d9d9">
+         <font>
+            <Font name="Segoe UI" size="15.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

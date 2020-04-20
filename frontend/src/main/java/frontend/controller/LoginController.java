@@ -15,9 +15,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
 public class LoginController {
     private static UserManager userManager = App.getUserManager();
+    public Button newProfileB;
     private CollectionManager collectionManager = App.getCollectionManager();
 
     Logger logger = LoggerFactory.getLogger(LoginController.class);
@@ -39,9 +41,19 @@ public class LoginController {
             SceneManager sceneManager = App.getSceneManager();
             App.setActivUser(user);
             sceneManager.changeScene("Home.fxml", actionEvent);
-            MainController controller = new MainController();
-
         }
 
+    }
+
+    public void createProfile(ActionEvent actionEvent) {
+        String name = loginTFUserName.getText();
+        String password = loginTFPassword.getText();
+        User user = new User();
+
+        user.setUserName(name);
+        user.setPassword(password);
+
+        userManager.createUser(user);
+        App.getSceneManager().showDialog("Používateľ úspešne vytvorený.");
     }
 }

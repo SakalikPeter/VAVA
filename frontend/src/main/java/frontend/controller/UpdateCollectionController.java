@@ -35,5 +35,6 @@ public class UpdateCollectionController {
     public void update(ActionEvent actionEvent) {
         String name = nameTF.getText();
         App.getCollectionManager().updateCollection(name);
+        sceneManager.changeScene("Home.fxml", actionEvent);
     }
 }

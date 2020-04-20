@@ -7,10 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.sql.Date;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 public class EditItemController {
@@ -43,11 +40,11 @@ public class EditItemController {
     public Label createNoteL;
 
     private ItemManager itemManager = App.getItemManager();
-    Logger logger = LoggerFactory.getLogger(EditItemController.class);
+    private Logger logger = LoggerFactory.getLogger(EditItemController.class);
+    private ResourceBundle resourceBundle = ResourceBundle.getBundle(App.getLanguage());
 
     public void initialize() {
         Item item = App.getActItem();
-        ResourceBundle resourceBundle = ResourceBundle.getBundle(App.getLanguage());
 
         updateItemB.setText(resourceBundle.getString("ItemController.editB"));
         createNameL.setText(resourceBundle.getString("ItemController.createNameL"));
@@ -96,8 +93,11 @@ public class EditItemController {
                     brand, acquirementLocation, dimensions, originCountry, price, value, note);
 
             itemManager.updateItem(App.getActItem(), newItem);
+            App.getSceneManager().showDialog(resourceBundle.getString("ItemController.info2"));
+
         } catch(Exception e) {
             logger.error("Incorrect integer value");
+            App.getSceneManager().showWarning(resourceBundle.getString("ItemController.warning"));
         }
 
     }

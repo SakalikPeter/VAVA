@@ -42,5 +42,9 @@ public class UpdateUserController {
         String newPassword = newPasswordTF.getText();
 
         App.getUserManager().updateUser(name, newPassword);
+
+        ResourceBundle resourceBundle = ResourceBundle.getBundle(App.getLanguage());
+        sceneManager.showDialog(resourceBundle.getString("UpdateUser.info"));
+        sceneManager.changeScene("settings.fxml", actionEvent);
     }
 }

@@ -117,6 +117,7 @@ public class MainController {
 
     public void removeCollection(ActionEvent actionEvent) {
         collectionManager.removeCollection();
+        sceneManager.changeScene("Home.fxml", actionEvent);
     }
 
     public void addItem(ActionEvent actionEvent) {
@@ -131,8 +132,11 @@ public class MainController {
         sceneManager.changeScene("updateItem.fxml", actionEvent);
     }
 
-    public void removeItem(ActionEvent actionEvent) {
+    public void removeItem(ActionEvent actionEvent) throws SQLException {
+
         itemManager.removeItem(App.getActItem().getId());
+        sceneManager.showDialog(resourceBundle.getString("ItemController.info3"));
+        getCollection(App.getCollection());
     }
 
     public void editCollection(ActionEvent actionEvent) {

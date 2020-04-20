@@ -7,9 +7,7 @@ import frontend.manager.UserManager;
 import frontend.model.Collection;
 import frontend.model.User;
 import javafx.event.ActionEvent;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 
 import java.util.ResourceBundle;
 
@@ -30,9 +28,10 @@ public class SettingsController {
     private UserManager userManager = App.getUserManager();
     private User user = App.getActivUser();
     private String lang = App.getLanguage();
+    private ResourceBundle resourceBundle = ResourceBundle.getBundle(lang);
 
     public void initialize() {
-        ResourceBundle resourceBundle = ResourceBundle.getBundle(lang);
+
         languagePicker.getItems().add("slovenčina");
         languagePicker.getItems().add("english");
 
@@ -59,6 +58,7 @@ public class SettingsController {
         collectionManager.removeAllCollections(user);
         userManager.removeUser(user);
 
+        sceneManager.showDialog(resourceBundle.getString("SettingsController.info"));
         sceneManager.changeScene("login.fxml", actionEvent);
     }
 

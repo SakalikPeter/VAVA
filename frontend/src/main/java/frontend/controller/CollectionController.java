@@ -29,5 +29,6 @@ public class CollectionController {
         String collectionName = newCollectionTF.getText();
         Collection collection = new Collection(user.getId(), collectionName, null, 0);
         App.getCollectionManager().createCollection(collection);
+        App.getSceneManager().changeScene("Home.fxml", actionEvent);
     }
 }

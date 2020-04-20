@@ -47,10 +47,9 @@ public class ItemController {
     public Button backB;
 
     Logger logger = LoggerFactory.getLogger(ItemController.class);
+    private ResourceBundle resourceBundle = ResourceBundle.getBundle(App.getLanguage());
 
     public void initialize() {
-        ResourceBundle resourceBundle = ResourceBundle.getBundle(App.getLanguage());
-
         insertItem.setText(resourceBundle.getString("ItemController.inserItemB"));
         createBigLabel.setText(resourceBundle.getString("ItemController.createBigLabel"));
         createNameL.setText(resourceBundle.getString("ItemController.createNameL"));
@@ -90,8 +89,11 @@ public class ItemController {
                     brand, acquirementLocation, dimensions, originCountry, price, value, note);
 
             itemManager.addItem(item);
+
+            sceneManager.showDialog(resourceBundle.getString("ItemController.info"));
         } catch (Exception e) {
             logger.error("Incorrect integer value");
+            sceneManager.showWarning(resourceBundle.getString("ItemController.warning"));
         }
     }
 }
